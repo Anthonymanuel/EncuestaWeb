@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B1954335-B62C-4635-B16D-8F06D7E2883E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EncuestaB0._1._0</RootNamespace>
+    <AssemblyName>EncuestaB0.1.0</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1010, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net40\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net40\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net40\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net40\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net40\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net40\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net40\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.24\lib\net40\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=2.6.8.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime, Version=2.6.8.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks, Version=2.6.8.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.1.1.8\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\style-responsive.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\table-responsive.css" />
+    <Content Include="assets\css\to-do.css" />
+    <Content Include="assets\css\zabuto_calendar.css" />
+    <Content Include="assets\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\img\blog-bg.jpg" />
+    <Content Include="assets\img\checkbox-gray.png" />
+    <Content Include="assets\img\friends\fr-01.jpg" />
+    <Content Include="assets\img\friends\fr-02.jpg" />
+    <Content Include="assets\img\friends\fr-03.jpg" />
+    <Content Include="assets\img\friends\fr-04.jpg" />
+    <Content Include="assets\img\friends\fr-05.jpg" />
+    <Content Include="assets\img\friends\fr-06.jpg" />
+    <Content Include="assets\img\friends\fr-07.jpg" />
+    <Content Include="assets\img\friends\fr-08.jpg" />
+    <Content Include="assets\img\friends\fr-09.jpg" />
+    <Content Include="assets\img\friends\fr-10.jpg" />
+    <Content Include="assets\img\friends\fr-11.jpg" />
+    <Content Include="assets\img\instagram.jpg" />
+    <Content Include="assets\img\login-bg.jpg" />
+    <Content Include="assets\img\lorde.jpg" />
+    <Content Include="assets\img\mask.png" />
+    <Content Include="assets\img\ny.jpg" />
+    <Content Include="assets\img\portfolio\port01.jpg" />
+    <Content Include="assets\img\portfolio\port02.jpg" />
+    <Content Include="assets\img\portfolio\port03.jpg" />
+    <Content Include="assets\img\portfolio\port04.jpg" />
+    <Content Include="assets\img\portfolio\port05.jpg" />
+    <Content Include="assets\img\portfolio\port06.jpg" />
+    <Content Include="assets\img\product.jpg" />
+    <Content Include="assets\img\product.png" />
+    <Content Include="assets\img\profile-01.jpg" />
+    <Content Include="assets\img\profile-02.jpg" />
+    <Content Include="assets\img\radio-gray.png" />
+    <Content Include="assets\img\ui-danro.jpg" />
+    <Content Include="assets\img\ui-divya.jpg" />
+    <Content Include="assets\img\ui-sam.jpg" />
+    <Content Include="assets\img\ui-sherman.jpg" />
+    <Content Include="assets\img\ui-zac.jpg" />
+    <Content Include="assets\img\weather.jpg" />
+    <Content Include="assets\img\zoom.png" />
+    <Content Include="assets\js\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="assets\js\bootstrap-switch.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\calendar-conf-events.js" />
+    <Content Include="assets\js\chart-master\Chart.js" />
+    <Content Include="assets\js\chartjs-conf.js" />
+    <Content Include="assets\js\common-scripts.js" />
+    <Content Include="assets\js\easy-pie-chart.js" />
+    <Content Include="assets\js\fancybox\jquery.fancybox.css" />
+    <Content Include="assets\js\fancybox\jquery.fancybox.js" />
+    <Content Include="assets\js\form-component.js" />
+    <Content Include="assets\js\fullcalendar\bootstrap-fullcalendar.css" />
+    <Content Include="assets\js\fullcalendar\fullcalendar.min.js" />
+    <Content Include="assets\js\gritter-conf.js" />
+    <Content Include="assets\js\gritter\css\jquery.gritter.css" />
+    <Content Include="assets\js\gritter\css\jquery.gritter0.css" />
+    <Content Include="assets\js\gritter\images\gritter-light.png" />
+    <Content Include="assets\js\gritter\images\gritter-long.png" />
+    <Content Include="assets\js\gritter\images\gritter.png" />
+    <Content Include="assets\js\gritter\images\ie-spacer.gif" />
+    <Content Include="assets\js\gritter\js\jquery.gritter.js" />
+    <Content Include="assets\js\jquery-1.8.3.min.js" />
+    <Content Include="assets\js\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
+    <Content Include="assets\js\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="assets\js\jquery-ui-1.9.2.custom.min.js" />
+    <Content Include="assets\js\jquery.backstretch.min.js" />
+    <Content Include="assets\js\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="assets\js\jquery.js" />
+    <Content Include="assets\js\jquery.nicescroll.js" />
+    <Content Include="assets\js\jquery.scrollTo.min.js" />
+    <Content Include="assets\js\jquery.sparkline.js" />
+    <Content Include="assets\js\jquery.tagsinput.js" />
+    <Content Include="assets\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="assets\js\morris-conf.js" />
+    <Content Include="assets\js\sparkline-chart.js" />
+    <Content Include="assets\js\tasks.js" />
+    <Content Include="assets\js\zabuto_calendar.js" />
+    <Content Include="assets\lineicons\fonts\linecons.svg" />
+    <Content Include="assets\lineicons\index.html" />
+    <Content Include="assets\lineicons\lte-ie7.js" />
+    <Content Include="assets\lineicons\style.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\npm.js" />
+    <Content Include="cEncuestas.aspx" />
+    <Content Include="cPreguntasAbiertas.aspx" />
+    <Content Include="cPreguntasCerradas.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="dist1\css\bootstrapValidator.css" />
+    <Content Include="dist1\css\bootstrapValidator.min.css" />
+    <Content Include="dist1\js\bootstrapValidator.js" />
+    <Content Include="dist1\js\bootstrapValidator.min.js" />
+    <Content Include="dist1\js\language\ar_MA.js" />
+    <Content Include="dist1\js\language\be_FR.js" />
+    <Content Include="dist1\js\language\be_NL.js" />
+    <Content Include="dist1\js\language\bg_BG.js" />
+    <Content Include="dist1\js\language\cs_CZ.js" />
+    <Content Include="dist1\js\language\da_DK.js" />
+    <Content Include="dist1\js\language\de_DE.js" />
+    <Content Include="dist1\js\language\en_US.js" />
+    <Content Include="dist1\js\language\es_CL.js" />
+    <Content Include="dist1\js\language\es_ES.js" />
+    <Content Include="dist1\js\language\fa_IR.js" />
+    <Content Include="dist1\js\language\fr_FR.js" />
+    <Content Include="dist1\js\language\gr_EL.js" />
+    <Content Include="dist1\js\language\he_IL.js" />
+    <Content Include="dist1\js\language\hu_HU.js" />
+    <Content Include="dist1\js\language\id_ID.js" />
+    <Content Include="dist1\js\language\it_IT.js" />
+    <Content Include="dist1\js\language\ja_JP.js" />
+    <Content Include="dist1\js\language\nl_NL.js" />
+    <Content Include="dist1\js\language\no_NO.js" />
+    <Content Include="dist1\js\language\pl_PL.js" />
+    <Content Include="dist1\js\language\pt_BR.js" />
+    <Content Include="dist1\js\language\pt_PT.js" />
+    <Content Include="dist1\js\language\ro_RO.js" />
+    <Content Include="dist1\js\language\ru_RU.js" />
+    <Content Include="dist1\js\language\sq_AL.js" />
+    <Content Include="dist1\js\language\sr_RS.js" />
+    <Content Include="dist1\js\language\sv_SE.js" />
+    <Content Include="dist1\js\language\th_TH.js" />
+    <Content Include="dist1\js\language\tr_TR.js" />
+    <Content Include="dist1\js\language\ua_UA.js" />
+    <Content Include="dist1\js\language\vi_VN.js" />
+    <Content Include="dist1\js\language\zh_CN.js" />
+    <Content Include="dist1\js\language\zh_TW.js" />
+    <Content Include="Encuestar.aspx" />
+    <Content Include="fonts\css\font-awesome.css" />
+    <Content Include="fonts\css\font-awesome.min.css" />
+    <Content Include="fonts\digital-7-webfont.svg" />
+    <Content Include="fonts\digital-7_italic-webfont.svg" />
+    <Content Include="fonts\digital-7_mono-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Linearicons-Free.svg" />
+    <Content Include="fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Login.aspx" />
+    <Content Include="LogOut.aspx" />
+    <Content Include="rEncuesta.aspx" />
+    <Content Include="rPreguntasAbiertas.aspx" />
+    <Content Include="rPreguntasCerradas.aspx" />
+    <Content Include="rUsuarios.aspx" />
+    <Content Include="scripts\ai.0.15.0-build58334.js" />
+    <Content Include="scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="App_Code\PreguntasCerradas.xsc">
+      <DependentUpon>PreguntasCerradas.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Code\PreguntasAbiertas.xsc">
+      <DependentUpon>PreguntasAbiertas.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Code\Encuestas.xsc">
+      <DependentUpon>Encuestas.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Code\Encuestas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Encuestas.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="App_Code\Encuestas.xss">
+      <DependentUpon>Encuestas.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Code\PreguntasAbiertas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PreguntasAbiertas.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="App_Code\PreguntasAbiertas.xss">
+      <DependentUpon>PreguntasAbiertas.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Code\PreguntasCerradas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PreguntasCerradas.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="App_Code\PreguntasCerradas.xss">
+      <DependentUpon>PreguntasCerradas.xsd</DependentUpon>
+    </Content>
+    <Content Include="fonts\digital-7-webfont.eot" />
+    <Content Include="fonts\digital-7-webfont.ttf" />
+    <Content Include="fonts\digital-7-webfont.woff" />
+    <Content Include="fonts\digital-7_italic-webfont.eot" />
+    <Content Include="fonts\digital-7_italic-webfont.ttf" />
+    <Content Include="fonts\digital-7_italic-webfont.woff" />
+    <Content Include="fonts\digital-7_mono-webfont.eot" />
+    <Content Include="fonts\digital-7_mono-webfont.ttf" />
+    <Content Include="fonts\digital-7_mono-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\Linearicons-Free.eot" />
+    <Content Include="fonts\Linearicons-Free.ttf" />
+    <Content Include="fonts\Linearicons-Free.woff" />
+    <Content Include="fonts\Linearicons-Free.woff2" />
+    <Content Include="fonts\weathericons-regular-webfont.eot" />
+    <Content Include="fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="fonts\weathericons-regular-webfont.woff" />
+    <Content Include="fonts\WeatherIcons-Regular.otf" />
+    <Content Include="bootstrap\css\bootstrap.css.map" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\.DS_Store" />
+    <Content Include="assets\css\.DS_Store" />
+    <Content Include="assets\font-awesome\.DS_Store" />
+    <Content Include="assets\font-awesome\css\.DS_Store" />
+    <Content Include="assets\font-awesome\fonts\.DS_Store" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\.DS_Store" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\img\.DS_Store" />
+    <Content Include="assets\img\friends\.DS_Store" />
+    <Content Include="assets\img\portfolio\.DS_Store" />
+    <Content Include="assets\js\.DS_Store" />
+    <Content Include="assets\js\bootstrap-inputmask\.DS_Store" />
+    <Content Include="assets\js\chart-master\.DS_Store" />
+    <Content Include="assets\js\fancybox\.DS_Store" />
+    <Content Include="assets\js\fullcalendar\.DS_Store" />
+    <Content Include="assets\js\gritter\.DS_Store" />
+    <Content Include="assets\js\gritter\css\.DS_Store" />
+    <Content Include="assets\js\gritter\images\.DS_Store" />
+    <Content Include="assets\js\gritter\js\.DS_Store" />
+    <Content Include="assets\js\jquery-easy-pie-chart\.DS_Store" />
+    <Content Include="assets\lineicons\.DS_Store" />
+    <Content Include="assets\lineicons\fonts\.DS_Store" />
+    <Content Include="assets\lineicons\fonts\linecons.eot" />
+    <Content Include="assets\lineicons\fonts\linecons.ttf" />
+    <Content Include="assets\lineicons\fonts\linecons.woff" />
+    <None Include="scripts\jquery-2.2.0.intellisense.js" />
+    <Content Include="scripts\jquery-2.2.0.js" />
+    <Content Include="scripts\jquery-2.2.0.min.js" />
+    <Content Include="scripts\toastr.min.js" />
+    <Content Include="vendor\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\bootstrap\js\npm.js" />
+    <Content Include="vendor\jasmine\boot.js" />
+    <Content Include="vendor\jasmine\console.js" />
+    <Content Include="vendor\jasmine\jasmine-html.js" />
+    <Content Include="vendor\jasmine\jasmine.css" />
+    <Content Include="vendor\jasmine\jasmine.js" />
+    <Content Include="vendor\jasmine\jasmine_favicon.png" />
+    <Content Include="vendor\jquery\jquery.min.js" />
+    <Content Include="ReEncuestas.aspx" />
+    <Content Include="RePreguntasCerradas.aspx" />
+    <Content Include="RePreguntasAbiertas.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Encuestas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Encuestas.xsd</DependentUpon>
+    </Content>
+    <Compile Include="cEncuestas.aspx.cs">
+      <DependentUpon>cEncuestas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cEncuestas.aspx.designer.cs">
+      <DependentUpon>cEncuestas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cPreguntasAbiertas.aspx.cs">
+      <DependentUpon>cPreguntasAbiertas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cPreguntasAbiertas.aspx.designer.cs">
+      <DependentUpon>cPreguntasAbiertas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cPreguntasCerradas.aspx.cs">
+      <DependentUpon>cPreguntasCerradas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cPreguntasCerradas.aspx.designer.cs">
+      <DependentUpon>cPreguntasCerradas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encuestar.aspx.cs">
+      <DependentUpon>Encuestar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Encuestar.aspx.designer.cs">
+      <DependentUpon>Encuestar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rEncuesta.aspx.cs">
+      <DependentUpon>rEncuesta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rEncuesta.aspx.designer.cs">
+      <DependentUpon>rEncuesta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rPreguntasAbiertas.aspx.cs">
+      <DependentUpon>rPreguntasAbiertas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rPreguntasAbiertas.aspx.designer.cs">
+      <DependentUpon>rPreguntasAbiertas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rPreguntasCerradas.aspx.cs">
+      <DependentUpon>rPreguntasCerradas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rPreguntasCerradas.aspx.designer.cs">
+      <DependentUpon>rPreguntasCerradas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ReEncuestas.aspx.cs">
+      <DependentUpon>ReEncuestas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReEncuestas.aspx.designer.cs">
+      <DependentUpon>ReEncuestas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RePreguntasCerradas.aspx.cs">
+      <DependentUpon>RePreguntasCerradas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RePreguntasCerradas.aspx.designer.cs">
+      <DependentUpon>RePreguntasCerradas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RePreguntasAbiertas.aspx.cs">
+      <DependentUpon>RePreguntasAbiertas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RePreguntasAbiertas.aspx.designer.cs">
+      <DependentUpon>RePreguntasAbiertas.aspx</DependentUpon>
+    </Compile>
+    <Content Include="App_Code\PreguntasAbiertas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreguntasAbiertas.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Code\PreguntasCerradas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreguntasCerradas.xsd</DependentUpon>
+    </Content>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rUsuarios.aspx.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rUsuarios.aspx.designer.cs">
+      <DependentUpon>rUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utilitarios.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="fonts\fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\less\animated.less" />
+    <Content Include="fonts\less\bordered-pulled.less" />
+    <Content Include="fonts\less\core.less" />
+    <Content Include="fonts\less\fixed-width.less" />
+    <Content Include="fonts\less\font-awesome.less" />
+    <Content Include="fonts\less\icons.less" />
+    <Content Include="fonts\less\larger.less" />
+    <Content Include="fonts\less\list.less" />
+    <Content Include="fonts\less\mixins.less" />
+    <Content Include="fonts\less\path.less" />
+    <Content Include="fonts\less\rotated-flipped.less" />
+    <Content Include="fonts\less\spinning.less" />
+    <Content Include="fonts\less\stacked.less" />
+    <Content Include="fonts\less\variables.less" />
+    <Content Include="fonts\scss\font-awesome.scss" />
+    <Content Include="fonts\scss\_animated.scss" />
+    <Content Include="fonts\scss\_bordered-pulled.scss" />
+    <Content Include="fonts\scss\_core.scss" />
+    <Content Include="fonts\scss\_fixed-width.scss" />
+    <Content Include="fonts\scss\_icons.scss" />
+    <Content Include="fonts\scss\_larger.scss" />
+    <Content Include="fonts\scss\_list.scss" />
+    <Content Include="fonts\scss\_mixins.scss" />
+    <Content Include="fonts\scss\_path.scss" />
+    <Content Include="fonts\scss\_rotated-flipped.scss" />
+    <Content Include="fonts\scss\_spinning.scss" />
+    <Content Include="fonts\scss\_stacked.scss" />
+    <Content Include="fonts\scss\_variables.scss" />
+    <Content Include="vendor\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="scripts\jquery-2.2.0.min.map" />
+    <Content Include="Site1.Master" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{8f15a452-a2fc-4b99-926b-10553f66b3f8}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\Encuestas.rdlc" />
+    <EmbeddedResource Include="Reportes\PreguntasAbiertasReport.rdlc" />
+    <EmbeddedResource Include="Reportes\PreguntasCerradasReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>11527</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:11527/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
