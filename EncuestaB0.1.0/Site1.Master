@@ -7,145 +7,134 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 
 
-    <meta charset="UTF-8" />
-
-
-
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="fonts/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="Content/toastr.min.css" rel="stylesheet" />
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/fonts/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
     <script src="/Scripts/jquery-2.2.0.min.js"></script>
     <script src="/Scripts/toastr.min.js"></script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link href="assets/css/style-responsive.css" rel="stylesheet" />
+    <link href="/fonts/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styling plus plugins -->
+    <link href="/css/custom.css" rel="stylesheet" />
 
 
+    <script src="/js/jquery.min.js"></script>
 
 </head>
 
-<body class="skin-black">
+<body class=" nav-md">
 
     <form id="form1" runat="server">
 
 
+        <div class="container body">
 
-        <section id="container">
-            <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
-            <!--header start-->
-            <header class="header black-bg">
-                <div class="sidebar-toggle-box">
-                    <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+
+            <div class="main_container">
+
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+
+                        <div class="navbar nav_title" style="border: 0;">
+                            <a href="/Default.aspx" class="site_title"><i class=" fa fa-pie-chart"></i><span>Encuesta Burgos</span></a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <br />
+                        <!-- sidebar menu -->
+                        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                            <div class="menu_section">
+                                <h3>General</h3>
+                                <ul class="nav side-menu">
+                                    <li><a><i class="fa fa-edit"></i>Registros<span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li><a href="/Registros/rPreguntasAbiertas.aspx">Preguntas Abiertas</a>
+                                            </li>
+                                            <li><a href="/Registros/rPreguntasCerradas.aspx">Preguntas Cerradas</a>
+                                            </li>
+                                            <li><a href="/Registros/rEncuesta.aspx">Encuesta</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-home"></i>Consultas<span class="fa fa-search"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li><a href="/Consultas/cPreguntasAbiertas.aspx">Preguntas Abiertas</a>
+                                            </li>
+                                            <li><a href="/Consultas/cPreguntasCerradas.aspx">Preguntas Cerradas</a>
+                                            </li>
+                                            <li><a href="/Consultas/cEncuestas.aspx">Encuestas</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a><i class="fa fa-file"></i>Reportes<span class="fa fa-chevron-down"></span></a>
+                                        <ul class="nav child_menu" style="display: none">
+                                            <li><a href="/Vistas reportes/RePreguntasAbiertas.aspx">Preguntas Abiertas</a>
+                                            </li>
+                                            <li><a href="/Vistas reportes/RePreguntasCerradas.aspx">Preguntas Cerradas</a>
+                                            </li>
+                                            <li><a href="/Vistas reportes/ReEncuestas.aspx">Encuestas</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!--logo start-->
-                <a href="Default.aspx" class="logo"><b>Encuesta Burgos</b></a>
-                <!--logo end-->
 
-                <div class="top-menu">
+                <!-- top navigation -->
+                <div class="top_nav">
+
+                    <div class="nav_menu">
+                        <nav class="" role="navigation">
+                            <div class="nav toggle">
+                                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                            </div>
+                        </nav>
+                         <div class="top-menu">
                     <ul class="nav pull-right top-menu">
-                        <li><a class="logout" href="LogOut.aspx">Logout</a></li>
+                        <li><a class="fa fa-sign-out pull-right" href="/LogOut.aspx">Logout</a></li>
                     </ul>
                 </div>
-            </header>
-            <!--header end-->
-
-            <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-            <!--sidebar start-->
-            <aside>
-                <div id="sidebar" class="nav-collapse ">
-                    <!-- sidebar menu start-->
-                    <ul class="sidebar-menu" id="nav-accordion">
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-edit"></i>
-                                <span>Registros</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="rPreguntasAbiertas.aspx">Preguntas abiertas</a></li>
-                            </ul>
-                            <ul class="sub">
-                                <li><a href="rPreguntasCerradas.aspx">Preguntas cerradas</a></li>
-                            </ul>
-                            <ul class="sub">
-                                <li><a href="/rEncuesta.aspx">Encuestas</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class=" fa fa-search"></i>
-                                <span>Consultas</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="cPreguntasAbiertas.aspx">Preguntas abiertas</a></li>
-                                <li><a href="cPreguntasCerradas.aspx">Preguntas Cerradas</a></li>
-                                <li><a href="cEncuestas.aspx">Encuestas</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class=" fa fa-file"></i>
-                                <span>Reportes</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="RePreguntasAbiertas.aspx">Preguntas Abiertas</a></li>
-                                <li><a href="RePreguntasCerradas.aspx">Pregunta Cerradas</a></li>
-                                <li><a href="ReEncuestas.aspx">Encuestas</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                    <!-- sidebar menu end-->
+                    </div>
                 </div>
-            </aside>
-            <!--sidebar end-->
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+                <!-- /top navigation -->
 
 
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+                <!-- footer content -->
+                <footer>
+                    <div class="copyright-info">
+                        <p class="pull-left">
+                            Anthony Burgos<a href="https://www.facebook.com/anthony.burgos.3110"></a>
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+
+            </div>
+            <!-- /page content -->
+        </div>
 
 
-
-            <!--footer start-->
-            <footer class="site-footer">
-                <div class="text-center">
-                    Anthony Burgos
-              <a href="Default.aspx" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-                </div>
-            </footer>
-            <!--footer end-->
-        </section>
 
 
 
     </form>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/jjquery-1.8.3.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
-
-    <!--common script for all pages-->
-    <script src="assets/js/common-scripts.js"></script>
+    <script src="/js/custom.js"></script>
 
 
 </body>

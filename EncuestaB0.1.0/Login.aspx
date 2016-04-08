@@ -41,7 +41,7 @@
                                 <div class="separator">
                                     <p class="change_link">
                                         
-                                        <a href="rUsuarios.aspx" class="to_register">Registrarse </a>
+                                        <a href="Publica/rUsuarios.aspx" class="to_register">Registrarse </a>
                                     </p>
                                 </div>
                             </div>
