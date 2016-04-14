@@ -374,6 +374,7 @@
     <Content Include="less\custom.css" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
+    <Content Include="Query\ProyectoFinalSQLQuery.sql" />
     <Content Include="Registros\rEncuesta.aspx" />
     <Content Include="Registros\rPreguntasAbiertas.aspx" />
     <Content Include="Registros\rPreguntasCerradas.aspx" />
