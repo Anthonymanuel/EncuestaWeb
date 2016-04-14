@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-3 control-label input-sm">Preguna Abierta Id</label>
                         <div class="col-sm-6 col-xs-6">
-                            <asp:TextBox ID="PreguntaAbiertaIdTextBox" CssClass="form-control input-sm" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="PreguntaAbiertaIdTextBox" CssClass="form-control input-sm" runat="server" ></asp:TextBox>
                             <asp:RangeValidator ID="PreguntaAbiertaIdRangeValidator" runat="server" ControlToValidate="PreguntaAbiertaIdTextBox" ErrorMessage="Ingrese numero entero solamente " ForeColor="Red" MaximumValue="99999" MinimumValue="1" Type="Integer"></asp:RangeValidator>
                             <asp:RequiredFieldValidator ID="IdRequiredFieldValidator" runat="server" ControlToValidate="PreguntaAbiertaIdTextBox" ErrorMessage="Ingrese un id" ForeColor="Red" ValidationGroup="B"></asp:RequiredFieldValidator>
 

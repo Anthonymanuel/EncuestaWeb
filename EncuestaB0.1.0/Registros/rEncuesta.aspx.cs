@@ -16,6 +16,8 @@ namespace EncuestaB0._1._0.Registros
             if (IsPostBack == false)
             {
                 Encuestas encuesta = new Encuestas();
+                PreguntasCerradas cerradas = new PreguntasCerradas();
+                PreguntasAbiertas abiertas = new PreguntasAbiertas();
 
                 if (Request.QueryString["idBuscado"] != null)
                 {
@@ -25,60 +27,42 @@ namespace EncuestaB0._1._0.Registros
                         LlenarCampos(encuesta);
                     }
                 }
-                DropDow();
-                BindGrid();
+                
+                PreguntasAbiertasDropDownList.DataSource = abiertas.Listado("*", "1=1", "");
+                PreguntasAbiertasDropDownList.DataTextField = "Descripcion";
+                PreguntasAbiertasDropDownList.DataValueField = "PreguntaAbiertaId";
+                PreguntasAbiertasDropDownList.DataBind();
+
+
+                PreguntasCerradasDropDownList.DataSource = cerradas.Listado("*", "1=1", ""); ;
+                PreguntasCerradasDropDownList.DataTextField = "Descripcion";
+                PreguntasCerradasDropDownList.DataValueField = "PreguntaCerradaId";
+                PreguntasCerradasDropDownList.DataBind();
+
                 AgregarGrid();
+
                 FechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
         }
 
-        public void DropDow()
-        {
-            DataTable dt = new DataTable();
-            DataTable dt2 = new DataTable();
-            PreguntasCerradas cerradas = new PreguntasCerradas();
-            PreguntasAbiertas abiertas = new PreguntasAbiertas();
-            dt = abiertas.Listado("*", "1=1", "");
-            dt2 = cerradas.Listado("*", "1=1", "");
-
-            PreguntasAbiertasDropDownList.DataSource = dt;
-            PreguntasAbiertasDropDownList.DataTextField = "Descripcion";
-            PreguntasAbiertasDropDownList.DataValueField = "PreguntaAbiertaId";
-            PreguntasAbiertasDropDownList.DataBind();
-
-
-            PreguntasCerradasDropDownList.DataSource = dt2;
-            PreguntasCerradasDropDownList.DataTextField = "Descripcion";
-            PreguntasCerradasDropDownList.DataValueField = "PreguntaCerradaId";
-            PreguntasCerradasDropDownList.DataBind();
-        }
-
         public void AgregarGrid()
         {
+
             DataTable dt = new DataTable();
-            dt.Columns.Add("PreguntaId");
-            dt.Columns.Add("Telefono");
+            dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Pregunta abierta id"), new DataColumn("Descripcion") });
             PreguntasAbiertasGridView.DataSource = dt;
             PreguntasAbiertasGridView.DataBind();
             Session["Abiertas"] = dt;
 
             DataTable dt2 = new DataTable();
-            dt2.Columns.Add("PreguntaId");
-            dt2.Columns.Add("Descripcion");
+            dt2.Columns.AddRange(new DataColumn[2] { new DataColumn("Pregunta cerrada id"), new DataColumn("Descripcion") });
             PreguntasCerradasGridView.DataSource = dt2;
             PreguntasCerradasGridView.DataBind();
             Session["Cerradas"] = dt2;
-
-        }
-        public void BindGrid()
-        {
-
-            PreguntasAbiertasGridView.DataSource = Session["Abiertas"] as DataTable;
-            PreguntasAbiertasGridView.DataBind();
-            PreguntasCerradasGridView.DataSource = Session["Cerradas"] as DataTable;
-            PreguntasCerradasGridView.DataBind();
+                
         }
 
+        
         public void LLenarDatos(Encuestas encuestas)
         {
             encuestas.EncuestaId = Utilitarios.ConveritrId(EncuestaIdTextBox.Text);
@@ -87,16 +71,15 @@ namespace EncuestaB0._1._0.Registros
             encuestas.Fecha = FechaTextBox.Text;
             foreach (GridViewRow item in PreguntasAbiertasGridView.Rows)
             {
-                encuestas.AgregarPreguntasAbiertas(1, Utilitarios.ConveritrId(item.Cells[0].Text), item.Cells[1].Text);
+                encuestas.AgregarPreguntasAbiertas(1,Utilitarios.ConveritrId(item.Cells[1].Text), item.Cells[2].Text);
             }
 
             foreach (GridViewRow item in PreguntasCerradasGridView.Rows)
             {
-                encuestas.AgregarPreguntasCerradas(1, Utilitarios.ConveritrId(item.Cells[0].Text), item.Cells[1].Text);
+                encuestas.AgregarPreguntasCerradas(1, Utilitarios.ConveritrId(item.Cells[1].Text), item.Cells[2].Text);
             }
         }
-
-
+        
         public void LlenarCampos(Encuestas encuesta)
         {
 
@@ -126,19 +109,41 @@ namespace EncuestaB0._1._0.Registros
             EncuestaIdTextBox.Text = "";
             EntidadTextBox.Text = "";
             DescripcionTextBox.Text = "";
-            PreguntasAbiertasGridView.DataSource = null;
-            PreguntasAbiertasGridView.DataBind();
-            Session.Remove("Abiertas");
-            Session.Remove("Cerradas");
-            PreguntasCerradasGridView.DataSource = null;
-            PreguntasCerradasGridView.DataBind();
-          
-            
+            AgregarGrid(); 
         }
+
+        public void BindData()
+        {
+            DataTable dt2 = (DataTable)Session["Cerradas"];
+            dt2.Rows.Add(PreguntasCerradasDropDownList.SelectedValue, PreguntasCerradasDropDownList.SelectedItem.Text);
+            PreguntasCerradasGridView.DataSource = dt2;
+            PreguntasCerradasGridView.DataBind();
+            Session["Cerradas"] = dt2;
+        }
+
+        protected void AgregarCButton_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
+
+        public void BindData1()
+        {
+            DataTable dt = (DataTable)Session["Abiertas"];
+            dt.Rows.Add(PreguntasAbiertasDropDownList.SelectedValue, PreguntasAbiertasDropDownList.SelectedItem.Text);
+            PreguntasAbiertasGridView.DataSource = dt;
+            PreguntasAbiertasGridView.DataBind();
+            Session["Abiertas"] = dt;
+        }
+
+        protected void AgregarAButton_Click(object sender, EventArgs e)
+        {
+            BindData1();
+        }
+
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             Encuestas encuestas = new Encuestas();
-            
+            AgregarGrid();
             if (encuestas.Buscar(Utilitarios.ConveritrId(EncuestaIdTextBox.Text)))
             {
                 LlenarCampos(encuestas);
@@ -149,23 +154,6 @@ namespace EncuestaB0._1._0.Registros
             }
         }
 
-        protected void AgregarCButton_Click(object sender, EventArgs e)
-        {
-            DataTable dt2 = (DataTable)Session["Cerradas"];
-            dt2.Rows.Add(PreguntasCerradasDropDownList.SelectedValue, PreguntasCerradasDropDownList.SelectedItem.Text);
-            PreguntasCerradasGridView.DataSource = dt2;
-            PreguntasCerradasGridView.DataBind();
-            Session["Cerradas"] = dt2;
-        }
-
-        protected void AgregarAButton_Click(object sender, EventArgs e)
-        {
-            DataTable dt = (DataTable)Session["Abiertas"];
-            dt.Rows.Add(PreguntasAbiertasDropDownList.SelectedValue, PreguntasAbiertasDropDownList.SelectedItem.Text);
-            PreguntasAbiertasGridView.DataSource = dt;
-            PreguntasAbiertasGridView.DataBind();
-            Session["Abiertas"] = dt;
-        }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
         {
@@ -178,7 +166,7 @@ namespace EncuestaB0._1._0.Registros
             LLenarDatos(encuestas);
             if (EncuestaIdTextBox.Text.Trim().Length == 0)
             {
-                if (PreguntasAbiertasGridView != null && PreguntasCerradasGridView != null && encuestas.Insertar())
+                if (encuestas.Insertar())
                 {
                     Limpiar();
                     Utilitarios.ShowToastr(this.Page, "Encuesta Guardada", "Correcto", "Success");
@@ -191,7 +179,7 @@ namespace EncuestaB0._1._0.Registros
             }
             if (EncuestaIdTextBox.Text.Trim().Length > 0)
             {
-                if (PreguntasAbiertasGridView != null && PreguntasCerradasGridView != null && encuestas.Editar())
+                if (encuestas.Editar())
                 {
                     Limpiar();
                     Utilitarios.ShowToastr(this.Page, "Encuesta editada", "Correcto", "Success");
@@ -220,21 +208,16 @@ namespace EncuestaB0._1._0.Registros
         }
 
        
+      
+
         protected void PreguntasCerradasGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            DataTable dt = (DataTable)Session["Cerradas"];
-            dt.Rows[Utilitarios.ConveritrId((e.RowIndex).ToString())].Delete();
-            Session["Cerradas"] = dt;
-            AgregarGrid();
-
-        }
-
-        protected void PreguntasCerradasGridView_RowDeleting1(object sender, GridViewDeleteEventArgs e)
         {
             DataTable dt = (DataTable)Session["Cerradas"];
             dt.Rows[Utilitarios.ConveritrId(e.RowIndex.ToString())].Delete();
             Session["Cerradas"] = dt;
-            BindGrid();
+            PreguntasCerradasGridView.DataSource = Session["Cerradas"] as DataTable;
+            PreguntasCerradasGridView.DataBind();
+
         }
 
         protected void PreguntasAbiertasGridView_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -242,7 +225,22 @@ namespace EncuestaB0._1._0.Registros
             DataTable dt = (DataTable)Session["Abiertas"];
             dt.Rows[Utilitarios.ConveritrId(e.RowIndex.ToString())].Delete();
             Session["Abiertas"] = dt;
-            BindGrid();
+            PreguntasAbiertasGridView.DataSource = Session["Abiertas"] as DataTable;
+            PreguntasAbiertasGridView.DataBind();
         }
+
+        protected void PreguntasCerradasGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            PreguntasCerradasGridView.PageIndex = e.NewPageIndex;
+            BindData();
+        }
+
+        protected void PreguntasAbiertasGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            PreguntasAbiertasGridView.PageIndex = e.NewPageIndex;
+            BindData1();
+        }
+
+       
     }
 }

@@ -7,16 +7,16 @@ using DAL;
 
 namespace BLL
 {
-    public class RepuestasAbiertas : ClaseMaestra
+    public class RespuestasAbiertas : ClaseMaestra
     {
 
-        public int RepuestaAbiertaId { get; set; }
+        public int RespuestaAbiertaId { get; set; }
         public int PreguntaAbiertaId { get; set; }
         public string Descricpcion { get; set; }
 
-        public RepuestasAbiertas()
+        public RespuestasAbiertas()
         {
-            this.RepuestaAbiertaId = 0;
+            this.RespuestaAbiertaId = 0;
             this.PreguntaAbiertaId = 0;
             this.Descricpcion = "";
         }
@@ -27,7 +27,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Insert Into RepuestasAbiertas(PreguntaAbiertaId,Descripcion) Values({0},'{1}')", this.PreguntaAbiertaId, this.Descricpcion));
+                retorno = conexion.Ejecutar(String.Format("Insert Into RespuestasAbiertas(PreguntaAbiertaId,Descripcion) Values({0},'{1}')", this.PreguntaAbiertaId, this.Descricpcion));
             }
             catch (Exception ex)
             {
@@ -42,7 +42,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Update RepuestasAbiertas Set Descripcion = '{1}' Where RepuestaAbiertaId = {1})", this.Descricpcion, this.RepuestaAbiertaId));
+                retorno = conexion.Ejecutar(String.Format("Update RespuestasAbiertas Set Descripcion = '{0}' Where RespuestaAbiertaId = {1})", this.Descricpcion, this.RespuestaAbiertaId));
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Delete RepuestasAbiertas Where RepuestaAbiertaId = {0})", this.PreguntaAbiertaId));
+                retorno = conexion.Ejecutar(String.Format("Delete RepuestasAbiertas Where RespuestaAbiertaId = {0})", this.PreguntaAbiertaId));
             }
             catch (Exception ex)
             {
@@ -75,7 +75,7 @@ namespace BLL
 
             if (dt.Rows.Count > 0)
             {
-                this.RepuestaAbiertaId = (int)dt.Rows[0]["RepuestaAbiertaId"];
+                this.RespuestaAbiertaId = (int)dt.Rows[0]["RespuestaAbiertaId"];
                 this.PreguntaAbiertaId = (int)dt.Rows[0]["PreguntaAbiertaId"];
                 this.Descricpcion = dt.Rows[0]["Descripcion"].ToString();
             }
@@ -91,7 +91,7 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " Order By " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From RepuestasAbiertas Where " +
+            return conexion.ObtenerDatos("Select " + Campos + " From RespuestasAbiertas Where " +
                                           Condicion + " " + ordenFinal);
         }
     }

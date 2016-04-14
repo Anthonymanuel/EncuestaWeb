@@ -13,15 +13,18 @@ namespace EncuestaB0._1._0
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
+
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             Usuarios usuario = new Usuarios();
+            Session["usuario"] = usuario;
             if (usuario.Login(EmailTextBox.Text, ContrasenaTextBox.Text))
             {
                 FormsAuthentication.RedirectFromLoginPage(EmailTextBox.Text, RecordarmeCheckBox.Checked);
+                Response.Redirect("/Registros/rPreguntasCerradas.aspx");
             }
             else
             {

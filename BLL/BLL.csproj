@@ -43,8 +43,9 @@
     <Compile Include="Encuestas.cs" />
     <Compile Include="PreguntasAbiertas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepuestasAbiertas.cs" />
+    <Compile Include="RespuestasAbiertas.cs" />
     <Compile Include="PreguntasCerradas.cs" />
+    <Compile Include="RespuestasCerradas.cs" />
     <Compile Include="Usuarios.cs" />
   </ItemGroup>
   <ItemGroup>

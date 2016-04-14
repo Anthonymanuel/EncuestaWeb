@@ -55,6 +55,7 @@ namespace BLL
                 foreach (var item in this.RepuestasPosibles)
                 {
                     conexion.Ejecutar(String.Format("Insert Into RespuestasPosibles(PreguntaCerradaId,Respuestas) Values({0},'{1}')", this.PreguntaCerradaId, item.Respuestas));
+                    conexion.Ejecutar(String.Format("Insert Into RespuestasCerradas(PreguntaCerradaId,Respuesta) Values({0},{1})", this.PreguntaCerradaId,0));
                 }
 
             }
@@ -75,10 +76,12 @@ namespace BLL
 
                 if (retorno)
                 {
-                    retorno = conexion.Ejecutar(String.Format("Delete RespuestasPosibles Where PreguntaCerradaId = {0}" , this.PreguntaCerradaId));
+                    retorno = conexion.Ejecutar(String.Format("Delete RespuestasPosibles Where PreguntaCerradaId = {0};"+
+                                                               "Delete RespuestasCerradas Where PreguntaCerradaId = {0}", this.PreguntaCerradaId));
                     foreach (var item in this.RepuestasPosibles)
                     {
                         conexion.Ejecutar(String.Format("Insert Into RespuestasPosibles(PreguntaCerradaId,Respuestas) Values({0},'{1}')", this.PreguntaCerradaId, item.Respuestas));
+                        conexion.Ejecutar(String.Format("Insert Into RespuestasCerradas(PreguntaCerradaId,Respuesta) Values({0},{1})", this.PreguntaCerradaId, 0));
                     }
 
                 }
@@ -97,14 +100,16 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Alter table Encuestas NOCHECK constraint ALL;" +
+                retorno = conexion.Ejecutar(String.Format("Alter table RespuestasCerradas NOCHECK constraint ALL;" +
+                                                             "Alter table Encuestas NOCHECK constraint ALL;" +
                                                             "Alter table EncuestaPreguntasCerradas NOCHECK constraint ALL;" +
                                                             "Alter table EncuestaPreguntasAbiertas NOCHECK constraint ALL;" + 
                                                             "Delete RespuestasPosibles Where PreguntaCerradaId = {0};" +
                                                           "Delete PreguntasCerradas Where PreguntaCerradaId = {0};"+
                                                             "Alter table Encuestas CHECK constraint ALL;" +
                                                             "Alter table EncuestaPreguntasCerradas CHECK constraint ALL;" +
-                                                            "Alter table EncuestaPreguntasAbiertas CHECK constraint ALL;", this.PreguntaCerradaId));
+                                                            "Alter table EncuestaPreguntasAbiertas CHECK constraint ALL;"+
+                                                            "Alter table RespuestasCerradas  CHECK constraint ALL;", this.PreguntaCerradaId));
             }
             catch (Exception ex)
             {
@@ -148,8 +153,17 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " Order By " + Orden;
 
-            return conexion.ObtenerDatos("Select " + Campos + " From PreguntasCerradas  Where " +
+            return conexion.ObtenerDatos("Select " + Campos + " From PreguntasCerradas Where " +
                                           Condicion + " " + ordenFinal);
         }
+
+
+        public DataTable ListadoRespuestasPosbiles(string Campos, string Condicion)
+        {
+            ConexionDb conexion = new ConexionDb();
+            return conexion.ObtenerDatos("Select " + Campos + " From RespuestasPosibles Where " +
+                                          Condicion);
+        }
+
     }
 }

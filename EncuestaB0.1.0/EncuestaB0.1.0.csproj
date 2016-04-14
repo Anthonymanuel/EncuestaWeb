@@ -125,6 +125,7 @@
     <Content Include="Consultas\cEncuestas.aspx" />
     <Content Include="Consultas\cPreguntasAbiertas.aspx" />
     <Content Include="Consultas\cPreguntasCerradas.aspx" />
+    <Content Include="Consultas\cResultado.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -243,7 +244,7 @@
     <Content Include="dist1\js\language\vi_VN.js" />
     <Content Include="dist1\js\language\zh_CN.js" />
     <Content Include="dist1\js\language\zh_TW.js" />
-    <Content Include="Encuestar.aspx" />
+    <Content Include="Publica\Encuestar.aspx" />
     <Content Include="fonts\css\font-awesome.css" />
     <Content Include="fonts\css\font-awesome.min.css" />
     <Content Include="fonts\digital-7-webfont.svg" />
@@ -254,6 +255,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\Linearicons-Free.svg" />
     <Content Include="fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Imagenes\1460333907_next_right.png" />
+    <Content Include="Imagenes\1460333926_previous_left.png" />
     <Content Include="js\autocomplete\countries.js" />
     <Content Include="js\autocomplete\jquery.autocomplete.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -439,6 +442,7 @@
     <Content Include="css\datatables\images\Sorting icons.psd" />
     <Content Include="js\datatables\json\scroller-demo.json" />
     <Content Include="js\maps\us-unemployment.json" />
+    <None Include="Properties\PublishProfiles\encuestaBu - Web Deploy.pubxml" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
@@ -492,6 +496,13 @@
     <Compile Include="Consultas\cPreguntasCerradas.aspx.designer.cs">
       <DependentUpon>cPreguntasCerradas.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\cResultado.aspx.cs">
+      <DependentUpon>cResultado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\cResultado.aspx.designer.cs">
+      <DependentUpon>cResultado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -499,11 +510,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Encuestar.aspx.cs">
+    <Compile Include="Publica\Encuestar.aspx.cs">
       <DependentUpon>Encuestar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Encuestar.aspx.designer.cs">
+    <Compile Include="Publica\Encuestar.aspx.designer.cs">
       <DependentUpon>Encuestar.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogOut.aspx.cs">

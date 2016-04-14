@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Encuesta Burgos</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -65,7 +65,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a><i class="fa fa-home"></i>Consultas<span class="fa fa-search"></span></a>
+                                    <li><a><i class="fa fa-search"></i>Consultas<span class="fa fa-search"></span></a>
                                         <ul class="nav child_menu" style="display: none">
                                             <li><a href="/Consultas/cPreguntasAbiertas.aspx">Preguntas Abiertas</a>
                                             </li>
@@ -73,17 +73,19 @@
                                             </li>
                                             <li><a href="/Consultas/cEncuestas.aspx">Encuestas</a>
                                             </li>
+                                            <li><a href="/Consultas/cResultado.aspx">Resultados</a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-file"></i>Reportes<span class="fa fa-chevron-down"></span></a>
-                                        <ul class="nav child_menu" style="display: none">
+                                        <%--<ul class="nav child_menu" style="display: none">
                                             <li><a href="/Vistas reportes/RePreguntasAbiertas.aspx">Preguntas Abiertas</a>
                                             </li>
                                             <li><a href="/Vistas reportes/RePreguntasCerradas.aspx">Preguntas Cerradas</a>
                                             </li>
                                             <li><a href="/Vistas reportes/ReEncuestas.aspx">Encuestas</a>
                                             </li>
-                                        </ul>
+                                        </ul>--%>
                                     </li>
                                 </ul>
                             </div>

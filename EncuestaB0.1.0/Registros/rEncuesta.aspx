@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
     <div class="right_col" role="main">
         <h3><i class="fa fa-angle-right"></i>Regitros</h3>
         <div class="panel panel-primary">
@@ -58,7 +59,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-3 control-label input-sm">Preguntas cerradas </label>
                                 <div class="col-sm-6 col-xs-6">
-                                    <asp:DropDownList ID="PreguntasCerradasDropDownList" CssClass="form-control input-sm" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="PreguntasCerradasDropDownList" CssClass="form-control input-sm" runat="server" AutoPostBack="true"></asp:DropDownList>
                                 </div>
                                 <div class="col-sm-2 col-xs-2">
                                     <asp:Button ID="AgregarCButton" CssClass="btn btn-primary btn-sm" runat="server" Text="Agregar" OnClick="AgregarCButton_Click" />
@@ -70,13 +71,18 @@
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-3 control-label input-sm">Preguntas Cerradas</label>
                                 <div class="col-sm-6 col-xs-6">
-                                    <asp:GridView ID="PreguntasCerradasGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" OnRowDeleting="PreguntasCerradasGridView_RowDeleting1">
+                                    <asp:GridView ID="PreguntasCerradasGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" OnRowDeleting="PreguntasCerradasGridView_RowDeleting" PageSize="5" OnPageIndexChanging="PreguntasCerradasGridView_PageIndexChanging">
                                         <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                                         <EditRowStyle BackColor="#ffffcc" />
                                         <EmptyDataRowStyle ForeColor="Red" CssClass="table table-bordered" />
                                         <Columns>
-                                            <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:Button ID="btnDelete" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Delete" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                         </Columns>
+                                        <PagerSettings Mode="NextPrevious" NextPageText="Siguiente" PreviousPageText="Anterior" NextPageImageUrl="~/Imagenes/1460333907_next_right.png" PreviousPageImageUrl="~/Imagenes/1460333926_previous_left.png" />
                                     </asp:GridView>
                                 </div>
                                 <div class="col-sm-2 col-xs-2">
@@ -100,13 +106,19 @@
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-3 control-label input-sm">Preguntas Abiertas</label>
                                 <div class="col-sm-6 col-xs-6">
-                                    <asp:GridView ID="PreguntasAbiertasGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" OnRowDeleting="PreguntasAbiertasGridView_RowDeleting">
+                                    <asp:GridView ID="PreguntasAbiertasGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" OnRowDeleting="PreguntasAbiertasGridView_RowDeleting"  PageSize="5" OnPageIndexChanging="PreguntasAbiertasGridView_PageIndexChanging">
                                         <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                                         <EditRowStyle BackColor="#ffffcc" />
                                         <EmptyDataRowStyle ForeColor="Red" CssClass="table table-bordered" />
                                         <Columns>
-                                            <asp:CommandField ShowDeleteButton="True" ButtonType="Button" />
+                                            <asp:TemplateField>
+                                            <itemtemplate>
+                                                     <asp:Button ID="btnDelete" runat="server" Text="Eliminar" CssClass="btn btn-danger btn-sm" CommandName="Delete" />
+                                                </itemtemplate>
+                                            </asp:TemplateField>
+                                            
                                         </Columns>
+                                        <PagerSettings Mode="NextPrevious" NextPageText="Siguiente" PreviousPageText="Anterior" NextPageImageUrl="~/Imagenes/1460333907_next_right.png" PreviousPageImageUrl="~/Imagenes/1460333926_previous_left.png" />
                                     </asp:GridView>
                                 </div>
                                 <div class="col-sm-2 col-xs-2">

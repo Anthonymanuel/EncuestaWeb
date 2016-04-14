@@ -92,7 +92,7 @@ namespace BLL
                     }
                     foreach (var item in this.EncuestaPreguntasCerradas)
                     {
-                        conexion.Ejecutar(String.Format("Insert Into EncuestaPreguntasCerradas(EncuestaId,PreguntaCerradaId,Descripcion) Values({0},{1},'{2}')", this.EncuestaId, item.PreguntaId, item.Descripcion));
+                       conexion.Ejecutar(String.Format("Insert Into EncuestaPreguntasCerradas(EncuestaId,PreguntaCerradaId,Descripcion) Values({0},{1},'{2}')", this.EncuestaId, item.PreguntaId, item.Descripcion));
                     }
                 }
             }
@@ -159,9 +159,41 @@ namespace BLL
 
             if (!Orden.Equals(""))
                 ordenFinal = " Orden By " + Orden;
-            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner join EncuestaPreguntasAbiertas a on  a.EncuestaId = e.EncuestaId"+ 
-                                         " inner join EncuestaPreguntasCerradas c on c.EncuestaId = e.EncuestaId Where " +
+            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas  Where " +
                                           Condicion + " " + ordenFinal);
         }
+
+        public  DataTable ListadoResultado(string Campos, string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden By " + Orden;
+            return conexion.ObtenerDatos("Select " + Campos + " Encuestas e inner join EncuestaPreguntasAbiertas a on a.EncuestaId = e.EncuestaId"+
+                                          " inner join PreguntasAbiertas p on p.PreguntaAbiertaId = a.PreguntaAbiertaId inner join RespuestasAbiertas r on r.PreguntaAbiertaId = p.PreguntaAbiertaId  Where " +
+                                          Condicion + " " + ordenFinal);
+        }
+
+        public  DataTable ListadoCerradas(string Campos, string Condicion)
+        {
+            ConexionDb conexion = new ConexionDb();
+            
+
+            return conexion.ObtenerDatos("Select " + Campos + " from Encuestas e " + 
+                                         " inner join EncuestaPreguntasCerradas c on c.EncuestaId = e.EncuestaId inner join RespuestasPosibles r"+
+                                          " on r.PreguntaCerradaId = c.PreguntaCerradaId inner join PreguntasCerradas p on p.PreguntaCerradaId = r.PreguntaCerradaId where " + Condicion);
+        }
+
+        public DataTable ListadoAbiertas(string Campos, string Condicion)
+        {
+            ConexionDb conexion = new ConexionDb();
+
+
+            return conexion.ObtenerDatos("Select " + Campos + " from Encuestas e " +
+                                         "  inner join EncuestaPreguntasAbiertas a on a.EncuestaId = e.EncuestaId inner join "+
+                                         "PreguntasAbiertas p on p.PreguntaAbiertaId = a.PreguntaAbiertaId where  " + Condicion);
+        }
+        
     }
 }

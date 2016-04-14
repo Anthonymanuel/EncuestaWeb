@@ -15,8 +15,7 @@ namespace EncuestaB0._1._0.Consultas
         {
 
         }
-
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        public void BindData()
         {
             PreguntasCerradas cerradas = new PreguntasCerradas();
             DataTable dt = new DataTable();
@@ -29,17 +28,26 @@ namespace EncuestaB0._1._0.Consultas
             {
                 if (FiltroDropDownList.SelectedIndex == 0)
                 {
-                    condicion =  FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
+                    condicion = FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
                 }
                 else
                 {
-                    condicion =   FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
+                    condicion = FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
                 }
             }
             dt = cerradas.Listado(" * ", condicion, "");
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
         }
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
 
+        protected void DatoGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            DatoGridView.PageIndex = e.NewPageIndex;
+            BindData();
+        }
     }
 }

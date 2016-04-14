@@ -55,13 +55,15 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Alter table Encuestas NOCHECK constraint ALL;" +
+                retorno = conexion.Ejecutar(String.Format("Alter table RespuestasAbiertas NOCHECK constraint ALL;" +
+                                                            "Alter table Encuestas NOCHECK constraint ALL;" +
                                                             "Alter table EncuestaPreguntasCerradas NOCHECK constraint ALL;" +
                                                             "Alter table EncuestaPreguntasAbiertas NOCHECK constraint ALL;" +
                                                             "Delete PreguntasAbiertas Where PreguntaAbiertaId = {0}"+ 
                                                             "Alter table Encuestas CHECK constraint ALL;" +
                                                             "Alter table EncuestaPreguntasCerradas CHECK constraint ALL;" +
-                                                            "Alter table EncuestaPreguntasAbiertas CHECK constraint ALL;", this.PreguntaAbiertaId));
+                                                            "Alter table EncuestaPreguntasAbiertas CHECK constraint ALL;"+
+                                                            "Alter table RespuestasAbiertas CHECK constraint ALL;", this.PreguntaAbiertaId));
             }
             catch (Exception ex)
             {

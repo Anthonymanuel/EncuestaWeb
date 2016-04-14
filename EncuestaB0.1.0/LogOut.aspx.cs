@@ -15,7 +15,7 @@ namespace EncuestaB0._1._0
            
             FormsAuthentication.SignOut();
             Session.Abandon();
-            FormsAuthentication.RedirectToLoginPage();
+            FormsAuthentication.RedirectToLoginPage("Login.aspx");
          
         }
     }

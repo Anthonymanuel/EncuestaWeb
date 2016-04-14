@@ -17,7 +17,7 @@ namespace EncuestaB0._1._0.Consultas
 
         }
 
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        public void BindData()
         {
             PreguntasAbiertas abiertas = new PreguntasAbiertas();
             DataTable dt = new DataTable();
@@ -41,8 +41,18 @@ namespace EncuestaB0._1._0.Consultas
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
 
+        }
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
 
 
+
+        protected void DatoGridView_PageIndexChanging1(object sender, GridViewPageEventArgs e)
+        {
+            DatoGridView.PageIndex = e.NewPageIndex;
+            BindData();
         }
     }
 }

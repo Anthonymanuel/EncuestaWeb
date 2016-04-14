@@ -15,7 +15,7 @@ namespace EncuestaB0._1._0.Consultas
 
         }
 
-        protected void BuscarButton_Click(object sender, EventArgs e)
+        public void BindData()
         {
             Encuestas encuesta = new Encuestas();
             DataTable dt = new DataTable();
@@ -28,20 +28,32 @@ namespace EncuestaB0._1._0.Consultas
             {
                 if (FiltroDropDownList.SelectedIndex == 0)
                 {
-                    condicion = "e." + FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
+                    condicion = FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
+                }
+                else if (FiltroDropDownList.SelectedIndex == 3)
+                {
+                    condicion = FiltroDropDownList.SelectedItem.Text + " =" + "'" + CampoTextBox.Text + "'";
+                    
                 }
                 else
                 {
-                    condicion = "e." + FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
+                    condicion = FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
                 }
             }
-            dt = encuesta.Listado(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,a.Descripcion,c.Descripcion ", condicion, "");
+            dt = encuesta.Listado(" * ", condicion, "");
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
-
-
         }
 
-     
+        protected void BuscarButton_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
+
+        protected void DatoGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            DatoGridView.PageIndex = e.NewPageIndex;
+            BindData();
+        }
     }
 }

@@ -35,13 +35,14 @@
                             <div class="col-sm-2 col-xs-2">
                             </div>
                             <div class="col-sm-7 col-xs-7">
-                                <asp:GridView ID="DatoGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true">
+                                <asp:GridView ID="DatoGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" OnPageIndexChanging="DatoGridView_PageIndexChanging1" >
                                     <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                                     <EditRowStyle BackColor="#ffffcc" />
                                     <EmptyDataRowStyle ForeColor="Red" CssClass="table table-bordered" />
                                     <Columns>
-                                        <asp:HyperLinkField DataNavigateUrlFields="PreguntaAbiertaId" DataNavigateUrlFormatString="~/rPreguntasAbiertas.aspx?idBuscado={0}" Text="Editar" />
+                                        <asp:HyperLinkField DataNavigateUrlFields="PreguntaAbiertaId" DataNavigateUrlFormatString="~/Registros/rPreguntasAbiertas.aspx?idBuscado={0}" Text="Editar" />
                                     </Columns>
+                                    <PagerSettings FirstPageText="Primera" LastPageText="Ultima" Mode="NextPrevious" NextPageText="Siguiente" PreviousPageText="Anterior" LastPageImageUrl="~/Imagenes/1460333907_next_right.png" NextPageImageUrl="~/Imagenes/1460333907_next_right.png" PreviousPageImageUrl="~/Imagenes/1460333926_previous_left.png" />
                                 </asp:GridView>
                             </div>
                             <div class="col-sm-3 col-xs-3">

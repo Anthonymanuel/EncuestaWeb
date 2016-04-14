@@ -33,13 +33,14 @@
                             <div class="col-sm-2 col-xs-2">
                             </div>
                             <div class="col-sm-7 col-xs-7">
-                                <asp:GridView ID="DatoGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true">
+                                <asp:GridView ID="DatoGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" OnPageIndexChanging="DatoGridView_PageIndexChanging">
                                     <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
                                     <EditRowStyle BackColor="#ffffcc" />
                                     <EmptyDataRowStyle ForeColor="Red" CssClass="table table-bordered" />
                                     <Columns>
-                                        <asp:HyperLinkField DataNavigateUrlFields="PreguntaCerradaId" DataNavigateUrlFormatString="~/rPreguntasCerradas.aspx?idBuscado={0}" Text="Editar" />
+                                        <asp:HyperLinkField DataNavigateUrlFields="PreguntaCerradaId" DataNavigateUrlFormatString="~/Registros/rPreguntasCerradas.aspx?idBuscado={0}" Text="Editar" />
                                     </Columns>
+                                    <PagerSettings Mode="NextPrevious" NextPageText="Siguiente" PreviousPageText="Anterior" NextPageImageUrl="~/Imagenes/1460333907_next_right.png" PreviousPageImageUrl="~/Imagenes/1460333926_previous_left.png" />
                                 </asp:GridView>
                             </div>
                             <div class="col-sm-3 col-xs-3">
