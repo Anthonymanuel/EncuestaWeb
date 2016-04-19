@@ -26,23 +26,22 @@
                             <asp:Label ID="PreguntaIdLabel" runat="server" Text='<%#Eval("PreguntaId") %>' Visible="False"></asp:Label>
                             <asp:Label ID="TipoDePreguntaLabel" runat="server" Text='<%#Eval("TipoDePregunta") %>' Visible="False"></asp:Label>
                             <asp:Label ID="SubTipoDePreguntaLabel" runat="server" Text='<%#Eval("SubTipoDePregunta") %>' Visible="False"></asp:Label>
-                            <table cellspacing="2" border=" 0">
-                                <tr>
-                                    <td style="width: 100px;" align="center"><b><%#Eval("Descripcion")%></b></td>
-                                </tr>
-                                <br />
-                                <tr>
-                                    <td>
-                                        <asp:RadioButtonList runat="server" ID="RespuestasRadioButtonList">
-                                        </asp:RadioButtonList>
-                                        <asp:CheckBoxList ID="RespuestasCheckBoxList" runat="server">
-                                        </asp:CheckBoxList>
-                                        <asp:TextBox ID="RespuestasTextBox" runat="server" Visible="false" TextMode="MultiLine"></asp:TextBox>
-                                         <asp:RequiredFieldValidator ID="RespuestasRegularExpressionValidator" runat="server" ErrorMessage="Debe de llenar la pregunta" ValidationGroup="A" ForeColor="Red" ControlToValidate="RespuestasTextBox"></asp:RequiredFieldValidator>
-                                    </td>
-                                </tr>
-                                <hr />
-                            </table>
+
+                            <tr>
+                                <td style="width: 100px;" align="center"><b><%#Eval("Descripcion")%></b></td>
+                            </tr>
+                            <br />
+                            <tr>
+                                <td>
+                                    <asp:RadioButtonList runat="server"  ID="RespuestasRadioButtonList">
+                                    </asp:RadioButtonList>
+                                    <asp:CheckBoxList ID="RespuestasCheckBoxList"  runat="server">
+                                    </asp:CheckBoxList>
+                                    <asp:TextBox ID="RespuestasTextBox" runat="server" Visible="false" TextMode="MultiLine"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ErrorMessage="Debe de llenar la pregunta" ValidationGroup="A" ForeColor="Red" ControlToValidate="RespuestasTextBox"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <hr />
                             <br />
                             <br />
                         </ItemTemplate>

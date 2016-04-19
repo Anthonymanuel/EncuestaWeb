@@ -142,8 +142,8 @@ namespace BLL
 
             if (!Orden.Equals(""))
                 ordenFinal = " Orden By " + Orden;
-            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner join EncuestaPreguntasAbiertas a on a.EncuestaId = e.EncuestaId" +
-                                          " inner join PreguntasAbiertas p on p.PreguntaAbiertaId = a.PreguntaAbiertaId inner join RespuestasAbiertas r on r.PreguntaAbiertaId = p.PreguntaAbiertaId  Where " +
+            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner join EncuestasPreguntas a on a.EncuestaId = e.EncuestaId" +
+                                          " inner join Preguntas p on p.PreguntaId = a.PreguntaId inner join RespuestasAbiertas r on r.PreguntaId = p.PreguntaId  Where " +
                                           Condicion + " " + ordenFinal);
         }
 
