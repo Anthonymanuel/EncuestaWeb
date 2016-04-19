@@ -6,19 +6,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BLL;
+
 namespace EncuestaB0._1._0.Consultas
 {
-    public partial class cEncuestas1 : System.Web.UI.Page
+    public partial class cPreguntas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
         public void BindData()
         {
-            Encuestas encuesta = new Encuestas();
-            DataTable dt = new DataTable();
+            Preguntas preguntas = new Preguntas();
             string condicion;
             if (CampoTextBox.Text.Trim().Length == 0)
             {
@@ -30,10 +29,10 @@ namespace EncuestaB0._1._0.Consultas
                 {
                     condicion = FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
                 }
-                else if (FiltroDropDownList.SelectedIndex == 3)
+                if(FiltroDropDownList.SelectedIndex == 1)
                 {
-                    condicion = FiltroDropDownList.SelectedItem.Text + " =" + "'" + CampoTextBox.Text + "'";
-                    
+                    condicion = FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
+
                 }
                 else
                 {
@@ -41,24 +40,26 @@ namespace EncuestaB0._1._0.Consultas
                 }
             }
             ImprimirButton.Visible = true;
-            dt = encuesta.Listado(" * ", condicion, "");
+            DataTable dt = new DataTable();
+            dt = preguntas.Listado(" * ", condicion, "");
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
-        }
 
+        }
         protected void BuscarButton_Click(object sender, EventArgs e)
         {
             BindData();
         }
 
-        protected void DatoGridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void DatoGridView_PageIndexChanging1(object sender, GridViewPageEventArgs e)
         {
             DatoGridView.PageIndex = e.NewPageIndex;
             BindData();
         }
+
         protected void ImprimirButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Vistas reportes/vEncuestas.aspx");
+            Response.Redirect("~/Vistas reportes/vPreguntas.aspx");
         }
     }
 }

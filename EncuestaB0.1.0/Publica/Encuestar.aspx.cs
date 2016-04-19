@@ -28,105 +28,124 @@ namespace EncuestaB0._1._0
 
             Encuestas encuestas = new Encuestas();
 
-            TituloRepeater.DataSource = encuestas.Listado("Entidad,Descripcion,Fecha", " EncuestaId =" + id.ToString(), "");
+            TituloRepeater.DataSource = encuestas.Listado("Entidad,Descripcion,Fecha", " EncuestaId = "+id.ToString(),"");
             TituloRepeater.DataBind();
-            Tipo1Repeater.DataSource = encuestas.ListadoCerradas("e.EncuestaId,e.Entidad,c.Descripcion,r.Respuestas,e.Fecha,c.PreguntaCerradaId ", " p.TipoDePreguntaCerrada = 1 and e.EncuestaId = " + id.ToString());
-            Tipo1Repeater.DataBind();
-
-            Tipo2Repeater.DataSource = encuestas.ListadoCerradas("e.EncuestaId,e.Entidad,c.Descripcion,r.Respuestas,e.Fecha,c.PreguntaCerradaId ", " p.TipoDePreguntaCerrada = 2 and e.EncuestaId =  " + id.ToString());
-            Tipo2Repeater.DataBind();
-
-            PreguntasAbiertasRepeater.DataSource = encuestas.ListadoAbiertas("e.EncuestaId,e.Entidad,a.Descripcion,e.Fecha,a.PreguntaAbiertaId ", " e.EncuestaId =" + id.ToString());
-            PreguntasAbiertasRepeater.DataBind();
+            PreguntasRepeater.DataSource = encuestas.ListadoPreguntas("p.PreguntaId,p.Descripcion,p.TipoDePregunta,p.SubTipoDePregunta", " where e.EncuestaId  = " + id.ToString());
+            PreguntasRepeater.DataBind();
         }
 
         protected void LlenarButton_Click(object sender, EventArgs e)
         {
+
             
-            RespuestasAbiertas abiertas = new RespuestasAbiertas();
-            foreach (RepeaterItem item in PreguntasAbiertasRepeater.Items)
+                RespuestasAbiertas abiertas = new RespuestasAbiertas();
+            foreach (RepeaterItem item in PreguntasRepeater.Items)
             {
-                TextBox txt = (TextBox)item.FindControl("RespuestasTextBox");
-                Label la = (Label)item.FindControl("PreguntaAbiertaIdLabel");
-                if (txt != null)
-                {
-                    abiertas.Descricpcion = txt.Text;
+                CheckBoxList check = (CheckBoxList)item.FindControl("RespuestasCheckBoxList");
+                RadioButtonList radio = (RadioButtonList)item.FindControl("RespuestasRadioButtonList");
+                TextBox textBox = (TextBox)item.FindControl("RespuestasTextBox");
+                Label label = (Label)item.FindControl("PreguntaIdLabel");
+                Label subTipo = (Label)item.FindControl("SubTipoDePreguntaLabel");
+                RequiredFieldValidator valido = (RequiredFieldValidator)item.FindControl("RespuestasRegularExpressionValidator");
+                if (textBox.Visible == true) {
+                    if (textBox != null)
+                    {
+                        abiertas.Descricpcion = textBox.Text;
 
+                    }
+                    if (label != null)
+                    {
+                        abiertas.PreguntaId = Utilitarios.ConveritrId(label.Text);
+
+                    }
+                    if (abiertas.Insertar())
+                    {
+
+                        textBox.Text = "";
+
+                    }
+                }else if(textBox.Visible == false)
+                {
+                    valido.IsValid = true;
                 }
-                if (la != null)
+                if (subTipo.Text ==  "1")
                 {
-                    abiertas.PreguntaAbiertaId = Utilitarios.ConveritrId(la.Text);
-
+                    RespuestasCerradas cerradas = new RespuestasCerradas();
+                    cerradas.PreguntaId = Utilitarios.ConveritrId(label.Text);
+                    cerradas.Respuestas = radio.SelectedIndex + 1;
+                    cerradas.Insertar();
+                    
                 }
-                if (abiertas.Insertar())
+                if (subTipo.Text == "2")
                 {
-
-                    txt.Text = "";
-                    Response.Redirect("~/Login.aspx");
+                    RespuestasCerradas cerradas = new RespuestasCerradas();
+                    cerradas.PreguntaId = Utilitarios.ConveritrId(label.Text);
+                    cerradas.Respuestas = check.SelectedIndex + 1;
+                    cerradas.Insertar();
                 }
             }
-            foreach (RepeaterItem item in Tipo1Repeater.Items)
-            {
-                RespuestasCerradas cerrada = new RespuestasCerradas();
-                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
-                {
-                    var radio = item.FindControl("RespuestasRadioButtonList") as RadioButtonList;
-                    var label = item.FindControl("PreguntaCerradaIdLabel") as Label;
+            //foreach (RepeaterItem item in Tipo1Repeater.Items)
+            //{
+            //    RespuestasCerradas cerrada = new RespuestasCerradas();
+            //    if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+            //    {
+            //        var radio = item.FindControl("RespuestasRadioButtonList") as RadioButtonList;
+            //        var label = item.FindControl("PreguntaCerradaIdLabel") as Label;
 
-                    //cerrada.RespuestaCerradaId = Utilitarios.ConveritrId(radio.SelectedValue.ToString());
-                    //cerrada.Editar();
+            //        //cerrada.RespuestaCerradaId = Utilitarios.ConveritrId(radio.SelectedValue.ToString());
+            //        //cerrada.Editar();
 
-                }
-            }
-            foreach (RepeaterItem item in Tipo2Repeater.Items)
-            {
-                RespuestasCerradas cerrada = new RespuestasCerradas();
-                if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
-                {
-                    var check = item.FindControl("RespuestasCheckBoxList") as CheckBoxList;
+            //    }
+            //}
+            //foreach (RepeaterItem item in Tipo2Repeater.Items)
+            //{
+            //    RespuestasCerradas cerrada = new RespuestasCerradas();
+            //    if (item.ItemType == ListItemType.Item || item.ItemType == ListItemType.AlternatingItem)
+            //    {
+            //        var check = item.FindControl("RespuestasCheckBoxList") as CheckBoxList;
 
-                    //cerrada.RespuestaCerradaId = Utilitarios.ConveritrId(check.SelectedValue.ToString());
-                    //cerrada.Editar();
+            //        //cerrada.RespuestaCerradaId = Utilitarios.ConveritrId(check.SelectedValue.ToString());
+            //        //cerrada.Editar();
 
 
-                }
-            }
+            //    }
+            //}
         }
 
 
-        protected void Tipo1Repeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void PreguntasRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
 
-            int id = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "PreguntaCerradaId"));
-            PreguntasCerradas cerrada = new PreguntasCerradas();
+            int id = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "PreguntaId"));
+            int tipo = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "TipoDePregunta"));
+            int subTipo = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "subTipoDePregunta"));
+            Preguntas preguntas = new Preguntas();
             DataTable dt = new DataTable();
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                dt = cerrada.ListadoRespuestasPosbiles("Respuestas,RespuestaPosibleId", "PreguntaCerradaId = " + id.ToString());
-                RadioButtonList radio = (RadioButtonList)e.Item.FindControl("RespuestasRadioButtonList");
-                radio.DataValueField = "RespuestaPosibleId";
-                radio.DataTextField = "Respuestas";
-                radio.DataSource = dt;
-                radio.DataBind();
-
+                dt = preguntas.ListadoRespuestasPosbiles("Respuestas,RespuestaPosibleId", "PreguntaId = " + id.ToString());
+                if (subTipo == 1) {
+                    RadioButtonList radio = (RadioButtonList)e.Item.FindControl("RespuestasRadioButtonList");
+                    radio.DataValueField = "RespuestaPosibleId";
+                    radio.DataTextField = "Respuestas";
+                    radio.DataSource = dt;
+                    radio.DataBind();
+                }
+                if (subTipo == 2)
+                {
+                    CheckBoxList check = (CheckBoxList)e.Item.FindControl("RespuestasCheckBoxList");
+                    check.DataValueField = "RespuestaPosibleId";
+                    check.DataTextField = "Respuestas";
+                    check.DataSource = dt;
+                    check.DataBind();
+                }
+                if (tipo == 1)
+                {
+                    TextBox textbox = (TextBox)e.Item.FindControl("RespuestasTextBox");
+                    textbox.Visible = true;
+                }
             }
 
-        }
-
-        protected void Tipo2Repeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            int id = Convert.ToInt32(DataBinder.Eval(e.Item.DataItem, "PreguntaCerradaId"));
-            PreguntasCerradas cerrada = new PreguntasCerradas();
-            DataTable dt = new DataTable();
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                dt = cerrada.ListadoRespuestasPosbiles("Respuestas,RespuestaPosibleId", "PreguntaCerradaId = " + id.ToString());
-                CheckBoxList check = (CheckBoxList)e.Item.FindControl("RespuestasCheckBoxList");
-                check.DataValueField = "RespuestaPosibleId";
-                check.DataTextField = "Respuestas";
-                check.DataSource = dt;
-                check.DataBind();
-            }
         }
     }
 }

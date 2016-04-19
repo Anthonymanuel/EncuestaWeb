@@ -10,7 +10,7 @@
 namespace EncuestaB0._1._0.Consultas {
     
     
-    public partial class cEncuestas1 {
+    public partial class cPreguntas {
         
         /// <summary>
         /// ConsultaScriptManager control.

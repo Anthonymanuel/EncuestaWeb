@@ -9,43 +9,29 @@ namespace BLL
 {
     public class Encuestas : ClaseMaestra
     {
+
         public int EncuestaId { get; set; }
         public string Entidad { get; set; }
         public string Descripcion { get; set; }
         public string Fecha { get; set; }
         public int PreguntaId { get; set; }
-        public List<Encuestas> EncuestaPreguntasAbiertas { get; set; }
-        public List<Encuestas> EncuestaPreguntasCerradas { get; set; }
+        public List<Preguntas> EncuestaPreguntas { get; set; }
 
         public Encuestas()
         {
             this.EncuestaId = 0;
             this.Entidad = "";
             this.Descripcion = "";
-            this.EncuestaPreguntasAbiertas = new List<Encuestas>();
-            this.EncuestaPreguntasCerradas = new List<Encuestas>();
+            this.EncuestaPreguntas = new List<Preguntas>();
         }
 
-        public Encuestas(int encuestaId,int preguntaId,string descripcion)
+        public void AgregarPreguntas(int encuestaId, int preguntaId, string descripcion,int tipoDePregunta)
         {
-            this.EncuestaId = encuestaId;
-            this.Descripcion = descripcion;
-            this.PreguntaId = preguntaId;
-        }
-
-        public void AgregarPreguntasAbiertas(int encuestaId, int preguntaId, string descripcion)
-        {
-            this.EncuestaPreguntasAbiertas.Add(new Encuestas(encuestaId, preguntaId, descripcion));
-        }
-
-        public void AgregarPreguntasCerradas(int encuestaId, int preguntaId, string descripcion)
-        {
-            this.EncuestaPreguntasCerradas.Add(new Encuestas(encuestaId, preguntaId, descripcion));
+            this.EncuestaPreguntas.Add(new Preguntas(encuestaId, preguntaId, descripcion,tipoDePregunta));
         }
         public void LimpiarListas()
         {
-            EncuestaPreguntasAbiertas.Clear();
-            EncuestaPreguntasCerradas.Clear();
+            EncuestaPreguntas.Clear();
         }
 
         public override bool Insertar()
@@ -59,13 +45,9 @@ namespace BLL
                 int.TryParse(identity.ToString(), out retorno);
 
                 this.EncuestaId = retorno;
-                foreach (var item in this.EncuestaPreguntasAbiertas)
+                foreach (var item in this.EncuestaPreguntas)
                 {
-                    conexion.Ejecutar(String.Format("Insert Into EncuestaPreguntasAbiertas(EncuestaId,PreguntaAbiertaId,Descripcion) Values({0},{1},'{2}')", this.EncuestaId, item.PreguntaId, item.Descripcion));
-                }
-                foreach (var item in this.EncuestaPreguntasCerradas)
-                {
-                    conexion.Ejecutar(String.Format("Insert Into EncuestaPreguntasCerradas(EncuestaId,PreguntaCerradaId,Descripcion) Values({0},{1},'{2}')", this.EncuestaId, item.PreguntaId, item.Descripcion));
+                    conexion.Ejecutar(String.Format("Insert Into EncuestasPreguntas(EncuestaId,PreguntaId) Values({0},{1})", this.EncuestaId, item.PreguntaId));
                 }
             }
             catch (Exception ex)
@@ -84,15 +66,10 @@ namespace BLL
                 retorno = conexion.Ejecutar(String.Format("Update Encuestas Set Entidad = '{0}',Descripcion = '{1}',Fecha = '{2}' Where EncuestaId = {3}", this.Entidad, this.Descripcion, this.Fecha, this.EncuestaId));
                 if (retorno)
                 {
-                    retorno = conexion.Ejecutar(String.Format("Delete EncuestaPreguntasAbiertas Where EncuestaId = {0};" +
-                                                          "Delete EncuestaPreguntasCerradas Where EncuestaId = {0};", this.EncuestaId));
-                    foreach (var item in this.EncuestaPreguntasAbiertas)
+                    retorno = conexion.Ejecutar(String.Format("Delete EncuestasPreguntas Where EncuestaId = {0}", this.EncuestaId));
+                    foreach (var item in this.EncuestaPreguntas)
                     {
-                        conexion.Ejecutar(String.Format("Insert Into EncuestaPreguntasAbiertas(EncuestaId,PreguntaAbiertaId,Descripcion) Values({0},{1},'{2}')", this.EncuestaId, item.PreguntaId, item.Descripcion));
-                    }
-                    foreach (var item in this.EncuestaPreguntasCerradas)
-                    {
-                       conexion.Ejecutar(String.Format("Insert Into EncuestaPreguntasCerradas(EncuestaId,PreguntaCerradaId,Descripcion) Values({0},{1},'{2}')", this.EncuestaId, item.PreguntaId, item.Descripcion));
+                        conexion.Ejecutar(String.Format("Insert Into EncuestasPreguntas(EncuestaId,PreguntaId) Values({0},{1})", this.EncuestaId, item.PreguntaId));
                     }
                 }
             }
@@ -109,9 +86,8 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Delete EncuestaPreguntasAbiertas Where EncuestaId = {0};" +
-                                                          "Delete EncuestaPreguntasCerradas Where EncuestaId = {0};"+
-                                                          "Delete Encuestas Where EncuestaId = {0}" , this.EncuestaId));
+                retorno = conexion.Ejecutar(String.Format("Delete EncuestasPreguntas Where EncuestaId = {0};" + 
+                                                          "Delete Encuestas Where EncuestaId = {0}", this.EncuestaId));
             }
             catch (Exception ex)
             {
@@ -124,8 +100,7 @@ namespace BLL
         {
             ConexionDb conexion = new ConexionDb();
             DataTable dt = new DataTable();
-            DataTable dtCerradas = new DataTable();
-            DataTable dtAbiertas = new DataTable();
+            DataTable dtPreguntas = new DataTable();
             dt = conexion.ObtenerDatos(String.Format("Select * From Encuestas Where EncuestaId = {0}", idBuscado));
             if (dt.Rows.Count > 0)
             {
@@ -134,18 +109,15 @@ namespace BLL
                 this.Descripcion = dt.Rows[0]["Descripcion"].ToString();
                 this.Fecha = dt.Rows[0]["Fecha"].ToString();
 
-                
-                dtCerradas = conexion.ObtenerDatos(String.Format("Select * From EncuestaPreguntasCerradas where EncuestaId = {0} ",this.EncuestaId));
-                dtAbiertas = conexion.ObtenerDatos(String.Format("Select * From EncuestaPreguntasAbiertas where EncuestaId = {0} ", this.EncuestaId));
+
+                dtPreguntas = conexion.ObtenerDatos(String.Format("Select * From EncuestasPreguntas where EncuestaId = {0} ", this.EncuestaId));
                 LimpiarListas();
 
-                foreach (DataRow item in dtCerradas.Rows)
+                foreach (DataRow item in dtPreguntas.Rows)
                 {
-                    AgregarPreguntasCerradas((int)item["EncuestaId"],(int)item["PreguntaCerradaId"], item["Descripcion"].ToString());
-                }
-                foreach (DataRow item in dtAbiertas.Rows)
-                {
-                    AgregarPreguntasAbiertas((int)item["EncuestaId"], (int)item["PreguntaAbiertaId"], item["Descripcion"].ToString());
+                    Preguntas preguntas = new Preguntas();
+                    preguntas.Buscar((int)item["PreguntaId"]);
+                    AgregarPreguntas((int)item["EncuestaId"], (int)item["PreguntaId"],preguntas.Descripcion,preguntas.TipoDePregunta );
                 }
             }
 
@@ -163,37 +135,27 @@ namespace BLL
                                           Condicion + " " + ordenFinal);
         }
 
-        public  DataTable ListadoResultado(string Campos, string Condicion, string Orden)
+        public DataTable ListadoResultado(string Campos, string Condicion, string Orden)
         {
             ConexionDb conexion = new ConexionDb();
             string ordenFinal = "";
 
             if (!Orden.Equals(""))
                 ordenFinal = " Orden By " + Orden;
-            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner join EncuestaPreguntasAbiertas a on a.EncuestaId = e.EncuestaId"+
+            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner join EncuestaPreguntasAbiertas a on a.EncuestaId = e.EncuestaId" +
                                           " inner join PreguntasAbiertas p on p.PreguntaAbiertaId = a.PreguntaAbiertaId inner join RespuestasAbiertas r on r.PreguntaAbiertaId = p.PreguntaAbiertaId  Where " +
                                           Condicion + " " + ordenFinal);
         }
 
-        public  DataTable ListadoCerradas(string Campos, string Condicion)
-        {
-            ConexionDb conexion = new ConexionDb();
-            
-
-            return conexion.ObtenerDatos("Select " + Campos + " from Encuestas e " + 
-                                         " inner join EncuestaPreguntasCerradas c on c.EncuestaId = e.EncuestaId inner join RespuestasPosibles r"+
-                                          " on r.PreguntaCerradaId = c.PreguntaCerradaId inner join PreguntasCerradas p on p.PreguntaCerradaId = r.PreguntaCerradaId where " + Condicion);
-        }
-
-        public DataTable ListadoAbiertas(string Campos, string Condicion)
+        public DataTable ListadoPreguntas(string Campos, string Condicion)
         {
             ConexionDb conexion = new ConexionDb();
 
 
-            return conexion.ObtenerDatos("Select " + Campos + " from Encuestas e " +
-                                         "  inner join EncuestaPreguntasAbiertas a on a.EncuestaId = e.EncuestaId inner join "+
-                                         "PreguntasAbiertas p on p.PreguntaAbiertaId = a.PreguntaAbiertaId where  " + Condicion);
+            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner Join EncuestasPreguntas q On e.EncuestaId = q.EncuestaId inner join Preguntas p on p.PreguntaId = q.PreguntaId "+ Condicion);
         }
-        
+
+      
+
     }
 }

@@ -1,12 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="cEncuestas.aspx.cs" Inherits="EncuestaB0._1._0.Consultas.cEncuestas1" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="cResultado.aspx.cs" Inherits="EncuestaB0._1._0.Consultas.cResultado" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="right_col" role="main">
         <h3><i class="fa fa-angle-right"></i>Consultas</h3>
         <div class="panel panel-primary text-center">
-            <div class="panel-heading">Consulta de Encuestas</div>
+            <div class="panel-heading">Consulta de Resultados</div>
             <div class="panel-body">
                 <asp:ScriptManager ID="ConsultaScriptManager" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="ConsultaUpdatePanel" runat="server">
@@ -33,28 +32,23 @@
                         </div>
 
                         <div class="form-group">
-                       <div class="col-sm-2 col-xs-2">
-
-                       </div>
-                        <div class="col-sm-7 col-xs-7">
-                            <asp:GridView ID="DatoGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" EnableSortingAndPagingCallbacks="True" OnPageIndexChanging="DatoGridView_PageIndexChanging">
-                                <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
-                                <EditRowStyle BackColor="#ffffcc" />
-                                <EmptyDataRowStyle ForeColor="Red" CssClass="table table-bordered" />
-                                <Columns>
-                                    <asp:HyperLinkField DataNavigateUrlFields="EncuestaId" DataNavigateUrlFormatString="~/Publica/Encuestar.aspx?idBuscado={0}" Text="Realizar encuesta" />
-                                </Columns>
-                                <PagerSettings FirstPageText="Primero" LastPageText="Ultimo" NextPageText="Siguiente" PreviousPageText="Anterior" Mode="NextPrevious" NextPageImageUrl="~/Imagenes/1460333907_next_right.png" PreviousPageImageUrl="~/Imagenes/1460333926_previous_left.png" />
-                            </asp:GridView>
-                            <br />
-                            <asp:Button ID="ImprimirButton" CssClass="btn btn-success btn-sm" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" Visible="false" />
-                        </div>
-                        <div class="col-sm-3 col-xs-3">
-                        </div>
+                            <div class="col-sm-2 col-xs-2">
+                            </div>
+                            <div class="col-sm-7 col-xs-7">
+                                <asp:GridView ID="DatoGridView" runat="server" Style="margin-top: 7px; margin-bottom: 0px" Width="580px" CssClass="table table-bordered bs-table input-sm" AllowPaging="true" EnableSortingAndPagingCallbacks="True" OnPageIndexChanging="DatoGridView_PageIndexChanging">
+                                    <HeaderStyle BackColor="#337ab7" Font-Bold="True" ForeColor="White" />
+                                    <EditRowStyle BackColor="#ffffcc" />
+                                    <EmptyDataRowStyle ForeColor="Red" CssClass="table table-bordered" />
+                                    <PagerSettings FirstPageText="Primero" LastPageText="Ultimo" NextPageText="Siguiente" PreviousPageText="Anterior" Mode="NextPrevious" NextPageImageUrl="~/Imagenes/1460333907_next_right.png" PreviousPageImageUrl="~/Imagenes/1460333926_previous_left.png" />
+                                </asp:GridView>
+                            </div>
+                            <div class="col-sm-3 col-xs-3">
+                            </div>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </div>
         </div>
     </div>
+
 </asp:Content>

@@ -14,7 +14,7 @@
 
 
 
-    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    
     <link href="/fonts/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/Content/toastr.min.css" rel="stylesheet" />
     <script src="/Scripts/jquery-2.2.0.min.js"></script>
@@ -29,22 +29,15 @@
 
 
     <script src="/js/jquery.min.js"></script>
-
 </head>
 
 <body class=" nav-md">
 
     <form id="form1" runat="server">
-
-
         <div class="container body">
-
-
             <div class="main_container">
-
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
-
                         <div class="navbar nav_title" style="border: 0;">
                             <a href="/Default.aspx" class="site_title"><i class=" fa fa-pie-chart"></i><span>Encuesta Burgos</span></a>
                         </div>
@@ -57,19 +50,15 @@
                                 <ul class="nav side-menu">
                                     <li><a><i class="fa fa-edit"></i>Registros<span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu" style="display: none">
-                                            <li><a href="/Registros/rPreguntasAbiertas.aspx">Preguntas Abiertas</a>
+                                            <li><a href="/Registros/rPreguntas.aspx">Preguntas</a>
                                             </li>
-                                            <li><a href="/Registros/rPreguntasCerradas.aspx">Preguntas Cerradas</a>
-                                            </li>
-                                            <li><a href="/Registros/rEncuesta.aspx">Encuesta</a>
+                                            <li><a href="/Registros/rEncuestas.aspx">Encuesta</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-search"></i>Consultas<span class="fa fa-search"></span></a>
                                         <ul class="nav child_menu" style="display: none">
-                                            <li><a href="/Consultas/cPreguntasAbiertas.aspx">Preguntas Abiertas</a>
-                                            </li>
-                                            <li><a href="/Consultas/cPreguntasCerradas.aspx">Preguntas Cerradas</a>
+                                            <li><a href="/Consultas/cPreguntas.aspx">Preguntas</a>
                                             </li>
                                             <li><a href="/Consultas/cEncuestas.aspx">Encuestas</a>
                                             </li>
@@ -78,14 +67,6 @@
                                         </ul>
                                     </li>
                                     <li><a><i class="fa fa-file"></i>Reportes<span class="fa fa-chevron-down"></span></a>
-                                        <%--<ul class="nav child_menu" style="display: none">
-                                            <li><a href="/Vistas reportes/RePreguntasAbiertas.aspx">Preguntas Abiertas</a>
-                                            </li>
-                                            <li><a href="/Vistas reportes/RePreguntasCerradas.aspx">Preguntas Cerradas</a>
-                                            </li>
-                                            <li><a href="/Vistas reportes/ReEncuestas.aspx">Encuestas</a>
-                                            </li>
-                                        </ul>--%>
                                     </li>
                                 </ul>
                             </div>
@@ -93,20 +74,30 @@
                     </div>
                 </div>
 
+               
                 <!-- top navigation -->
                 <div class="top_nav">
-
                     <div class="nav_menu">
                         <nav class="" role="navigation">
                             <div class="nav toggle">
                                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                             </div>
+                           <ul class="nav navbar-nav navbar-right">
+                                <li class="">
+                                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <span class=" fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                        <li>
+                                            <a href="javascript:;">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="/LogOut.aspx"><i class="fa fa-sign-out pull-right"></i>Log Out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </nav>
-                         <div class="top-menu">
-                    <ul class="nav pull-right top-menu">
-                        <li><a class="fa fa-sign-out pull-right" href="/LogOut.aspx">Logout</a></li>
-                    </ul>
-                </div>
                     </div>
                 </div>
                 <!-- /top navigation -->
@@ -114,30 +105,22 @@
 
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
-
-                <!-- footer content -->
-                <footer>
-                    <div class="copyright-info">
-                        <p class="pull-left">
-                            Anthony Burgos<a href="https://www.facebook.com/anthony.burgos.3110"></a>
-                        </p>
-                    </div>
-                    <div class="clearfix"></div>
-                </footer>
-                <!-- /footer content -->
-
             </div>
+
             <!-- /page content -->
         </div>
-
-
-
-
-
+        <!-- footer content -->
+        <footer>
+            <div class="copyright-info">
+                <p class="pull-right">
+                    <a href="https://www.facebook.com/anthony.burgos.3110">Anthony Burgos</a>
+                </p>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
     </form>
-
     <script src="/js/custom.js"></script>
-
-
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -123,8 +123,7 @@
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="bootstrap\js\npm.js" />
     <Content Include="Consultas\cEncuestas.aspx" />
-    <Content Include="Consultas\cPreguntasAbiertas.aspx" />
-    <Content Include="Consultas\cPreguntasCerradas.aspx" />
+    <Content Include="Consultas\cPreguntas.aspx" />
     <Content Include="Consultas\cResultado.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -374,46 +373,11 @@
     <Content Include="less\custom.css" />
     <Content Include="Login.aspx" />
     <Content Include="LogOut.aspx" />
-    <Content Include="Query\ProyectoFinalSQLQuery.sql" />
-    <Content Include="Registros\rEncuesta.aspx" />
-    <Content Include="Registros\rPreguntasAbiertas.aspx" />
-    <Content Include="Registros\rPreguntasCerradas.aspx" />
+    <Content Include="Registros\rEncuestas.aspx" />
+    <Content Include="Registros\rPreguntas.aspx" />
     <Content Include="Publica\rUsuarios.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="App_Code\PreguntasCerradas.xsc">
-      <DependentUpon>PreguntasCerradas.xsd</DependentUpon>
-    </Content>
-    <Content Include="App_Code\PreguntasAbiertas.xsc">
-      <DependentUpon>PreguntasAbiertas.xsd</DependentUpon>
-    </Content>
-    <Content Include="App_Code\Encuestas.xsc">
-      <DependentUpon>Encuestas.xsd</DependentUpon>
-    </Content>
-    <None Include="App_Code\Encuestas.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Encuestas.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="App_Code\Encuestas.xss">
-      <DependentUpon>Encuestas.xsd</DependentUpon>
-    </Content>
-    <None Include="App_Code\PreguntasAbiertas.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PreguntasAbiertas.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="App_Code\PreguntasAbiertas.xss">
-      <DependentUpon>PreguntasAbiertas.xsd</DependentUpon>
-    </Content>
-    <None Include="App_Code\PreguntasCerradas.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PreguntasCerradas.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="App_Code\PreguntasCerradas.xss">
-      <DependentUpon>PreguntasCerradas.xsd</DependentUpon>
-    </Content>
     <Content Include="fonts\digital-7-webfont.eot" />
     <Content Include="fonts\digital-7-webfont.ttf" />
     <Content Include="fonts\digital-7-webfont.woff" />
@@ -443,6 +407,28 @@
     <Content Include="css\datatables\images\Sorting icons.psd" />
     <Content Include="js\datatables\json\scroller-demo.json" />
     <Content Include="js\maps\us-unemployment.json" />
+    <Content Include="App_Code\PreguntasDataSet.xsc">
+      <DependentUpon>PreguntasDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Code\EncuestasDataSet.xsc">
+      <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Code\EncuestasDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EncuestasDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="App_Code\EncuestasDataSet.xss">
+      <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="App_Code\PreguntasDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PreguntasDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="App_Code\PreguntasDataSet.xss">
+      <DependentUpon>PreguntasDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\encuestaBu - Web Deploy.pubxml" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="scripts\jquery-2.2.0.js" />
@@ -463,18 +449,22 @@
     <Content Include="vendor\jasmine\jasmine.js" />
     <Content Include="vendor\jasmine\jasmine_favicon.png" />
     <Content Include="vendor\jquery\jquery.min.js" />
-    <Content Include="Vistas reportes\ReEncuestas.aspx" />
-    <Content Include="Vistas reportes\RePreguntasCerradas.aspx" />
-    <Content Include="Vistas reportes\RePreguntasAbiertas.aspx" />
+    <Content Include="Vistas reportes\vEncuestas.aspx" />
+    <Content Include="Vistas reportes\vPreguntas.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\Encuestas.Designer.cs">
+    <Content Include="App_Code\PreguntasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Encuestas.xsd</DependentUpon>
+      <DependentUpon>PreguntasDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="App_Code\EncuestasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EncuestasDataSet.xsd</DependentUpon>
     </Content>
     <Compile Include="Consultas\cEncuestas.aspx.cs">
       <DependentUpon>cEncuestas.aspx</DependentUpon>
@@ -483,19 +473,12 @@
     <Compile Include="Consultas\cEncuestas.aspx.designer.cs">
       <DependentUpon>cEncuestas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Consultas\cPreguntasAbiertas.aspx.cs">
-      <DependentUpon>cPreguntasAbiertas.aspx</DependentUpon>
+    <Compile Include="Consultas\cPreguntas.aspx.cs">
+      <DependentUpon>cPreguntas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Consultas\cPreguntasAbiertas.aspx.designer.cs">
-      <DependentUpon>cPreguntasAbiertas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Consultas\cPreguntasCerradas.aspx.cs">
-      <DependentUpon>cPreguntasCerradas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Consultas\cPreguntasCerradas.aspx.designer.cs">
-      <DependentUpon>cPreguntasCerradas.aspx</DependentUpon>
+    <Compile Include="Consultas\cPreguntas.aspx.designer.cs">
+      <DependentUpon>cPreguntas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Consultas\cResultado.aspx.cs">
       <DependentUpon>cResultado.aspx</DependentUpon>
@@ -525,26 +508,19 @@
     <Compile Include="LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rEncuesta.aspx.cs">
-      <DependentUpon>rEncuesta.aspx</DependentUpon>
+    <Compile Include="Registros\rEncuestas.aspx.cs">
+      <DependentUpon>rEncuestas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rEncuesta.aspx.designer.cs">
-      <DependentUpon>rEncuesta.aspx</DependentUpon>
+    <Compile Include="Registros\rEncuestas.aspx.designer.cs">
+      <DependentUpon>rEncuestas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Registros\rPreguntasAbiertas.aspx.cs">
-      <DependentUpon>rPreguntasAbiertas.aspx</DependentUpon>
+    <Compile Include="Registros\rPreguntas.aspx.cs">
+      <DependentUpon>rPreguntas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registros\rPreguntasAbiertas.aspx.designer.cs">
-      <DependentUpon>rPreguntasAbiertas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registros\rPreguntasCerradas.aspx.cs">
-      <DependentUpon>rPreguntasCerradas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registros\rPreguntasCerradas.aspx.designer.cs">
-      <DependentUpon>rPreguntasCerradas.aspx</DependentUpon>
+    <Compile Include="Registros\rPreguntas.aspx.designer.cs">
+      <DependentUpon>rPreguntas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -553,37 +529,20 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="Vistas reportes\ReEncuestas.aspx.cs">
-      <DependentUpon>ReEncuestas.aspx</DependentUpon>
+    <Compile Include="Vistas reportes\vEncuestas.aspx.cs">
+      <DependentUpon>vEncuestas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas reportes\ReEncuestas.aspx.designer.cs">
-      <DependentUpon>ReEncuestas.aspx</DependentUpon>
+    <Compile Include="Vistas reportes\vEncuestas.aspx.designer.cs">
+      <DependentUpon>vEncuestas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas reportes\RePreguntasCerradas.aspx.cs">
-      <DependentUpon>RePreguntasCerradas.aspx</DependentUpon>
+    <Compile Include="Vistas reportes\vPreguntas.aspx.cs">
+      <DependentUpon>vPreguntas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vistas reportes\RePreguntasCerradas.aspx.designer.cs">
-      <DependentUpon>RePreguntasCerradas.aspx</DependentUpon>
+    <Compile Include="Vistas reportes\vPreguntas.aspx.designer.cs">
+      <DependentUpon>vPreguntas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vistas reportes\RePreguntasAbiertas.aspx.cs">
-      <DependentUpon>RePreguntasAbiertas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas reportes\RePreguntasAbiertas.aspx.designer.cs">
-      <DependentUpon>RePreguntasAbiertas.aspx</DependentUpon>
-    </Compile>
-    <Content Include="App_Code\PreguntasAbiertas.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PreguntasAbiertas.xsd</DependentUpon>
-    </Content>
-    <Content Include="App_Code\PreguntasCerradas.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PreguntasCerradas.xsd</DependentUpon>
-    </Content>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -669,9 +628,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\Encuestas.rdlc" />
-    <EmbeddedResource Include="Reportes\PreguntasAbiertasReport.rdlc" />
-    <EmbeddedResource Include="Reportes\PreguntasCerradasReport.rdlc" />
+    <EmbeddedResource Include="Reportes\EncuestasReport.rdlc" />
+    <EmbeddedResource Include="Reportes\PreguntasReport.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

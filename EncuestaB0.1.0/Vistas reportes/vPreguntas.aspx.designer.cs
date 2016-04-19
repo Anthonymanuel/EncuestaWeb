@@ -7,45 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EncuestaB0._1._0 {
+namespace EncuestaB0._1._0.Vistas_reportes {
     
     
-    public partial class Encuestar {
+    public partial class rEPreguntas {
         
         /// <summary>
-        /// form1 control.
+        /// PreguntasScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.ScriptManager PreguntasScriptManager;
         
         /// <summary>
-        /// TituloRepeater control.
+        /// PreguntasReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater TituloRepeater;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer PreguntasReportViewer;
         
         /// <summary>
-        /// PreguntasRepeater control.
+        /// PreguntasObjectDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater PreguntasRepeater;
-        
-        /// <summary>
-        /// LlenarButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LlenarButton;
+        protected global::System.Web.UI.WebControls.ObjectDataSource PreguntasObjectDataSource;
     }
 }

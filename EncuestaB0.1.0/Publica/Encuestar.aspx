@@ -18,13 +18,14 @@
                         <ItemTemplate>
                             <h1><%#Eval("Descripcion")%></h1>
                             <h1><%#Eval("Entidad")%></h1>
-                            <h1><%#Eval("Fecha")%></h1>
                         </ItemTemplate>
                     </asp:Repeater>
 
-                    <asp:Repeater ID="Tipo1Repeater" runat="server" OnItemDataBound="Tipo1Repeater_ItemDataBound">
+                    <asp:Repeater ID="PreguntasRepeater" runat="server" OnItemDataBound="PreguntasRepeater_ItemDataBound">
                         <ItemTemplate>
-                            <asp:Label ID="PreguntaCerradaIdLabel" runat="server" Text='<%#Eval("PreguntaCerradaId") %>' Visible="False"></asp:Label>
+                            <asp:Label ID="PreguntaIdLabel" runat="server" Text='<%#Eval("PreguntaId") %>' Visible="False"></asp:Label>
+                            <asp:Label ID="TipoDePreguntaLabel" runat="server" Text='<%#Eval("TipoDePregunta") %>' Visible="False"></asp:Label>
+                            <asp:Label ID="SubTipoDePreguntaLabel" runat="server" Text='<%#Eval("SubTipoDePregunta") %>' Visible="False"></asp:Label>
                             <table cellspacing="2" border=" 0">
                                 <tr>
                                     <td style="width: 100px;" align="center"><b><%#Eval("Descripcion")%></b></td>
@@ -32,51 +33,19 @@
                                 <br />
                                 <tr>
                                     <td>
-
                                         <asp:RadioButtonList runat="server" ID="RespuestasRadioButtonList">
-                                        </asp:RadioButtonList></td>
-                                </tr>
-                                <hr />
-                            </table>
-                            <br />
-                            <br />
-                        </ItemTemplate>
-                    </asp:Repeater>
-
-                    <asp:Repeater ID="Tipo2Repeater" runat="server" OnItemDataBound="Tipo2Repeater_ItemDataBound">
-                        <ItemTemplate>
-                            <asp:Label ID="PreguntaCerradaLabel" runat="server" Text='<%#Eval("PreguntaCerradaId") %>' Visible="False"></asp:Label>
-                            <table>
-                                <tr>
-                                    <td style="width: 100px;" align="center"><b><%#Eval("Descripcion")%></b></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:CheckBoxList ID="RespuestasCheckBoxList" runat="server"></asp:CheckBoxList></td>
-                                </tr>
-                                <hr />
-                            </table>
-                        </ItemTemplate>
-                    </asp:Repeater>
-
-                    <asp:Repeater ID="PreguntasAbiertasRepeater" runat="server">
-                        <ItemTemplate>
-                            <asp:Label ID="PreguntaAbiertaIdLabel" runat="server" Text='<%#Eval("PreguntaAbiertaId") %>' Visible="False"></asp:Label>
-                            <table>
-                                <tr>
-                                    <td style="width: 100px;" align="center"><b><%#Eval("Descripcion")%></b></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox ID="RespuestasTextBox" TextMode="MultiLine" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RespuestasRegularExpressionValidator" runat="server" ErrorMessage="Debe de llenar la pregunta" ValidationGroup="A" ForeColor="Red" ControlToValidate="RespuestasTextBox"></asp:RequiredFieldValidator>
+                                        </asp:RadioButtonList>
+                                        <asp:CheckBoxList ID="RespuestasCheckBoxList" runat="server">
+                                        </asp:CheckBoxList>
+                                        <asp:TextBox ID="RespuestasTextBox" runat="server" Visible="false" TextMode="MultiLine"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="RespuestasRegularExpressionValidator" runat="server" ErrorMessage="Debe de llenar la pregunta" ValidationGroup="A" ForeColor="Red" ControlToValidate="RespuestasTextBox"></asp:RequiredFieldValidator>
                                     </td>
                                 </tr>
                                 <hr />
                             </table>
+                            <br />
+                            <br />
                         </ItemTemplate>
-                        <SeparatorTemplate>
-                        </SeparatorTemplate>
                     </asp:Repeater>
                 </div>
             </div>

@@ -11,13 +11,13 @@ namespace BLL
     {
 
         public int RespuestaAbiertaId { get; set; }
-        public int PreguntaAbiertaId { get; set; }
+        public int PreguntaId { get; set; }
         public string Descricpcion { get; set; }
 
         public RespuestasAbiertas()
         {
             this.RespuestaAbiertaId = 0;
-            this.PreguntaAbiertaId = 0;
+            this.PreguntaId = 0;
             this.Descricpcion = "";
         }
 
@@ -27,7 +27,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Insert Into RespuestasAbiertas(PreguntaAbiertaId,Descripcion) Values({0},'{1}')", this.PreguntaAbiertaId, this.Descricpcion));
+                retorno = conexion.Ejecutar(String.Format("Insert Into RespuestasAbiertas(PreguntaId,Descripcion) Values({0},'{1}')", this.PreguntaId, this.Descricpcion));
             }
             catch (Exception ex)
             {
@@ -57,7 +57,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Delete RepuestasAbiertas Where RespuestaAbiertaId = {0})", this.PreguntaAbiertaId));
+                retorno = conexion.Ejecutar(String.Format("Delete RepuestasAbiertas Where RespuestaAbiertaId = {0})", this.PreguntaId));
             }
             catch (Exception ex)
             {
@@ -76,7 +76,7 @@ namespace BLL
             if (dt.Rows.Count > 0)
             {
                 this.RespuestaAbiertaId = (int)dt.Rows[0]["RespuestaAbiertaId"];
-                this.PreguntaAbiertaId = (int)dt.Rows[0]["PreguntaAbiertaId"];
+                this.PreguntaId = (int)dt.Rows[0]["PreguntaId"];
                 this.Descricpcion = dt.Rows[0]["Descripcion"].ToString();
             }
 

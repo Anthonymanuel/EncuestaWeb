@@ -6,42 +6,36 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using BLL;
+
 namespace EncuestaB0._1._0.Consultas
 {
-    public partial class cEncuestas1 : System.Web.UI.Page
+    public partial class cResultado : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            BindData();
         }
-
         public void BindData()
         {
             Encuestas encuesta = new Encuestas();
             DataTable dt = new DataTable();
             string condicion;
-            if (CampoTextBox.Text.Trim().Length == 0)
-            {
-                condicion = "1=1";
-            }
-            else
-            {
+            
                 if (FiltroDropDownList.SelectedIndex == 0)
                 {
-                    condicion = FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
+                    condicion =  FiltroDropDownList.SelectedItem.Text + " = " + Utilitarios.ConveritrId(CampoTextBox.Text).ToString();
                 }
                 else if (FiltroDropDownList.SelectedIndex == 3)
                 {
-                    condicion = FiltroDropDownList.SelectedItem.Text + " =" + "'" + CampoTextBox.Text + "'";
-                    
+                    condicion =  FiltroDropDownList.SelectedItem.Text + " =" + "'" + CampoTextBox.Text + "'";
+
                 }
                 else
                 {
-                    condicion = FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
+                    condicion =  FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
                 }
-            }
-            ImprimirButton.Visible = true;
-            dt = encuesta.Listado(" * ", condicion, "");
+            
+            dt = encuesta.ListadoResultado(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,p.Descripcion,r.Descripcion ","e."+condicion, "");
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
         }
@@ -55,10 +49,6 @@ namespace EncuestaB0._1._0.Consultas
         {
             DatoGridView.PageIndex = e.NewPageIndex;
             BindData();
-        }
-        protected void ImprimirButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Vistas reportes/vEncuestas.aspx");
         }
     }
 }
