@@ -35,7 +35,7 @@ namespace EncuestaB0._1._0.Consultas
                     condicion =  FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
                 }
             
-            dt = encuesta.ListadoResultado(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,p.Descripcion,r.Descripcion,c.Respuesta ","e."+condicion, "");
+            dt = encuesta.ListadoResultado(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,p.Descripcion,r.Descripcion,c.Respuesta","e."+condicion, "");
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
         }

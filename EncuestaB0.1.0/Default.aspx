@@ -17,9 +17,8 @@
                                     <asp:Repeater ID="DefaultRepeater" runat="server">
 
                                         <ItemTemplate>
-                                            <asp:Label ID="Label" runat="server" Text='<%#Eval("Entidad")%>' Visible="false"></asp:Label>
-                                            <h5><%#Eval("Descripcion")%></h5>
-                                            <h5><%#Eval("Entidad")%></h5>
+                                            <h5>Descripcion: <%#Eval("Descripcion")%></h5>
+                                            <h5>Entidad: <%#Eval("Entidad")%></h5>
                                             <asp:HyperLink ID="lnkDetails" runat="server" NavigateUrl='<%# Eval("EncuestaId", "~/Publica/Encuestar.aspx?idBuscado={0}") %>'>LLenar</asp:HyperLink>
                                         </ItemTemplate>
                                     </asp:Repeater>
