@@ -434,7 +434,7 @@
     <Content Include="App_Code\PreguntasDataSet.xss">
       <DependentUpon>PreguntasDataSet.xsd</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\encuestaBu - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\encuestab - Web Deploy.pubxml" />
     <None Include="scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="scripts\jquery-2.2.0.js" />
     <Content Include="scripts\jquery-2.2.0.min.js" />
