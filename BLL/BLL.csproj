@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClaseMaestra.cs" />
+    <Compile Include="Encuestados.cs" />
     <Compile Include="Encuestas.cs" />
     <Compile Include="Preguntas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

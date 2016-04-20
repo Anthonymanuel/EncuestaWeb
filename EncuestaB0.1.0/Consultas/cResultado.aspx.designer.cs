@@ -40,6 +40,15 @@ namespace EncuestaB0._1._0.Consultas {
         protected global::System.Web.UI.WebControls.DropDownList FiltroDropDownList;
         
         /// <summary>
+        /// TipoDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TipoDropDownList;
+        
+        /// <summary>
         /// CampoTextBox control.
         /// </summary>
         /// <remarks>

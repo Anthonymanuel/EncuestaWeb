@@ -13,7 +13,7 @@
                         <div class="form-horizontal" role="form">
                             <%--Campos--%>
                             <label class="col-sm-2 col-xs-2 control-label input-sm ">Filtrar por:</label>
-                            <div class="col-sm-3 col-xs-3">
+                            <div class="col-sm-2 col-xs-2">
                                 <asp:DropDownList ID="FiltroDropDownList" CssClass="form-control input-sm" runat="server">
                                     <asp:ListItem>EncuestaId</asp:ListItem>
                                     <asp:ListItem>Entidad</asp:ListItem>
@@ -21,7 +21,13 @@
                                     <asp:ListItem>Fecha</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
-                            <div class="col-sm-4 col-xs-4">
+                            <div class="col-sm-2 col-xs-2">
+                                <asp:DropDownList ID="TipoDropDownList" CssClass="form-control input-sm" runat="server">
+                                    <asp:ListItem>Abiertas</asp:ListItem>
+                                    <asp:ListItem>Cerradas</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+                            <div class="col-sm-3 col-xs-3">
                                 <asp:TextBox ID="CampoTextBox" CssClass="form-control input-sm" runat="server"></asp:TextBox>
                             </div>
                             <div class="col-sm-2 col-xs-2">

@@ -34,8 +34,15 @@ namespace EncuestaB0._1._0.Consultas
                 {
                     condicion =  FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
                 }
-            
-            dt = encuesta.ListadoResultado(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,p.Descripcion,r.Descripcion,c.Respuesta","e."+condicion, "");
+            if (TipoDropDownList.SelectedIndex == 0)
+            {
+                dt = encuesta.ListadoResultado(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,p.Descripcion,r.Descripcion", "e." + condicion + " And p.TipoDePregunta = 1 ", "");
+              
+            }
+            else
+            {
+                dt = encuesta.ListadoResultado1(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,p.Descripcion,r.Respuesta", "e." + condicion + " And p.TipoDePregunta = 2", "");
+            }
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
         }

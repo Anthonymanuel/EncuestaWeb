@@ -17,5 +17,16 @@ namespace EncuestaB0._1._0
             DefaultRepeater.DataSource = encuestas.Listado("EncuestaId,Entidad,Descripcion", " 1=1", "");
             DefaultRepeater.DataBind();
         }
+
+        protected void DefaultRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Footer)
+            {
+                Encuestados encuestado = new Encuestados();
+                Repeater FooterRepeater = (Repeater)e.Item.FindControl("FooterRepeater");
+                FooterRepeater.DataSource = encuestado.Listado(" Count(Cantidad) as 'Total' ", "", ""); 
+                FooterRepeater.DataBind();
+            }
+        }
     }
 }

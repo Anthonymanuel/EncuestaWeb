@@ -25,9 +25,9 @@ namespace BLL
             this.EncuestaPreguntas = new List<Preguntas>();
         }
 
-        public void AgregarPreguntas(int encuestaId, int preguntaId, string descripcion,int tipoDePregunta)
+        public void AgregarPreguntas(int encuestaId, int preguntaId, string descripcion, int tipoDePregunta)
         {
-            this.EncuestaPreguntas.Add(new Preguntas(encuestaId, preguntaId, descripcion,tipoDePregunta));
+            this.EncuestaPreguntas.Add(new Preguntas(encuestaId, preguntaId, descripcion, tipoDePregunta));
         }
         public void LimpiarListas()
         {
@@ -86,7 +86,7 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Delete EncuestasPreguntas Where EncuestaId = {0};" + 
+                retorno = conexion.Ejecutar(String.Format("Delete EncuestasPreguntas Where EncuestaId = {0};" +
                                                           "Delete Encuestas Where EncuestaId = {0}", this.EncuestaId));
             }
             catch (Exception ex)
@@ -117,7 +117,7 @@ namespace BLL
                 {
                     Preguntas preguntas = new Preguntas();
                     preguntas.Buscar((int)item["PreguntaId"]);
-                    AgregarPreguntas((int)item["EncuestaId"], (int)item["PreguntaId"],preguntas.Descripcion,preguntas.TipoDePregunta );
+                    AgregarPreguntas((int)item["EncuestaId"], (int)item["PreguntaId"], preguntas.Descripcion, preguntas.TipoDePregunta);
                 }
             }
 
@@ -143,7 +143,19 @@ namespace BLL
             if (!Orden.Equals(""))
                 ordenFinal = " Orden By " + Orden;
             return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner join EncuestasPreguntas a on a.EncuestaId = e.EncuestaId" +
-                                          " inner join Preguntas p on p.PreguntaId = a.PreguntaId inner join RespuestasAbiertas r on r.PreguntaId = p.PreguntaId inner join RespuestasCerradas c on c.PreguntaId = p.PreguntaId Where " +
+                                          " inner join Preguntas p on p.PreguntaId = a.PreguntaId inner join RespuestasAbiertas r on r.PreguntaId = p.PreguntaId Where " +
+                                          Condicion + " " + ordenFinal);
+        }
+
+        public DataTable ListadoResultado1(string Campos, string Condicion, string Orden)
+        {
+            ConexionDb conexion = new ConexionDb();
+            string ordenFinal = "";
+
+            if (!Orden.Equals(""))
+                ordenFinal = " Orden By " + Orden;
+            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner join EncuestasPreguntas a on a.EncuestaId = e.EncuestaId" +
+                                          " inner join Preguntas p on p.PreguntaId = a.PreguntaId inner join RespuestasCerradas r on r.PreguntaId = p.PreguntaId Where " +
                                           Condicion + " " + ordenFinal);
         }
 
@@ -152,10 +164,10 @@ namespace BLL
             ConexionDb conexion = new ConexionDb();
 
 
-            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner Join EncuestasPreguntas q On e.EncuestaId = q.EncuestaId inner join Preguntas p on p.PreguntaId = q.PreguntaId "+ Condicion);
+            return conexion.ObtenerDatos("Select " + Campos + " From Encuestas e inner Join EncuestasPreguntas q On e.EncuestaId = q.EncuestaId inner join Preguntas p on p.PreguntaId = q.PreguntaId " + Condicion);
         }
 
-      
+
 
     }
 }
