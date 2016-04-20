@@ -1,16 +1,36 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="EncuestaB0._1._0.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="EncuestaB0._1._0.Default1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<!DOCTYPE html>
+      <div class="right_col" role="main">
+                <div class="panel panel-primary">
+                    <h1 class="panel-heading">Encuesta Burgos</h1>
+                    <div class="panel-body">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Encuesta Burgos</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
-</html>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Encuestas</h3>
+                                    </div>
+                                    <asp:Repeater ID="DefaultRepeater" runat="server">
+
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label" runat="server" Text='<%#Eval("Entidad")%>' Visible="false"></asp:Label>
+                                            <h5><%#Eval("Descripcion")%></h5>
+                                            <h5><%#Eval("Entidad")%></h5>
+                                            <asp:HyperLink ID="lnkDetails" runat="server" NavigateUrl='<%# Eval("EncuestaId", "~/Publica/Encuestar.aspx?idBuscado={0}") %>'>LLenar</asp:HyperLink>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+     
+
+
+</asp:Content>

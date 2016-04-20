@@ -39,7 +39,6 @@ namespace EncuestaB0._1._0.Consultas
                     condicion = FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
                 }
             }
-            ImprimirButton.Visible = true;
             DataTable dt = new DataTable();
             dt = preguntas.Listado(" * ", condicion, "");
             DatoGridView.DataSource = dt;
@@ -57,9 +56,5 @@ namespace EncuestaB0._1._0.Consultas
             BindData();
         }
 
-        protected void ImprimirButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Vistas reportes/vPreguntas.aspx");
-        }
     }
 }

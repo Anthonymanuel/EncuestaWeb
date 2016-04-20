@@ -24,7 +24,7 @@ namespace EncuestaB0._1._0.App_Code {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class PreguntasDataSet : global::System.Data.DataSet {
         
-        private PreguntasDataTable tablePreguntas;
+        private Preguntas1DataTable tablePreguntas1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace EncuestaB0._1._0.App_Code {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Preguntas"] != null)) {
-                    base.Tables.Add(new PreguntasDataTable(ds.Tables["Preguntas"]));
+                if ((ds.Tables["Preguntas1"] != null)) {
+                    base.Tables.Add(new Preguntas1DataTable(ds.Tables["Preguntas1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace EncuestaB0._1._0.App_Code {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public PreguntasDataTable Preguntas {
+        public Preguntas1DataTable Preguntas1 {
             get {
-                return this.tablePreguntas;
+                return this.tablePreguntas1;
             }
         }
         
@@ -152,8 +152,8 @@ namespace EncuestaB0._1._0.App_Code {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Preguntas"] != null)) {
-                    base.Tables.Add(new PreguntasDataTable(ds.Tables["Preguntas"]));
+                if ((ds.Tables["Preguntas1"] != null)) {
+                    base.Tables.Add(new Preguntas1DataTable(ds.Tables["Preguntas1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace EncuestaB0._1._0.App_Code {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablePreguntas = ((PreguntasDataTable)(base.Tables["Preguntas"]));
+            this.tablePreguntas1 = ((Preguntas1DataTable)(base.Tables["Preguntas1"]));
             if ((initTable == true)) {
-                if ((this.tablePreguntas != null)) {
-                    this.tablePreguntas.InitVars();
+                if ((this.tablePreguntas1 != null)) {
+                    this.tablePreguntas1.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace EncuestaB0._1._0.App_Code {
             this.Namespace = "http://tempuri.org/PreguntasDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablePreguntas = new PreguntasDataTable();
-            base.Tables.Add(this.tablePreguntas);
+            this.tablePreguntas1 = new Preguntas1DataTable();
+            base.Tables.Add(this.tablePreguntas1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializePreguntas() {
+        private bool ShouldSerializePreguntas1() {
             return false;
         }
         
@@ -270,14 +270,14 @@ namespace EncuestaB0._1._0.App_Code {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void PreguntasRowChangeEventHandler(object sender, PreguntasRowChangeEvent e);
+        public delegate void Preguntas1RowChangeEventHandler(object sender, Preguntas1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class PreguntasDataTable : global::System.Data.TypedTableBase<PreguntasRow> {
+        public partial class Preguntas1DataTable : global::System.Data.TypedTableBase<Preguntas1Row> {
             
             private global::System.Data.DataColumn columnPreguntaId;
             
@@ -285,12 +285,12 @@ namespace EncuestaB0._1._0.App_Code {
             
             private global::System.Data.DataColumn columnTipoDePregunta;
             
-            private global::System.Data.DataColumn columnsubTipoDePregunta;
+            private global::System.Data.DataColumn columnSubTipoDePregunta;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntasDataTable() {
-                this.TableName = "Preguntas";
+            public Preguntas1DataTable() {
+                this.TableName = "Preguntas1";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +298,7 @@ namespace EncuestaB0._1._0.App_Code {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal PreguntasDataTable(global::System.Data.DataTable table) {
+            internal Preguntas1DataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +315,7 @@ namespace EncuestaB0._1._0.App_Code {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected PreguntasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Preguntas1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -346,9 +346,9 @@ namespace EncuestaB0._1._0.App_Code {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn subTipoDePreguntaColumn {
+            public global::System.Data.DataColumn SubTipoDePreguntaColumn {
                 get {
-                    return this.columnsubTipoDePregunta;
+                    return this.columnSubTipoDePregunta;
                 }
             }
             
@@ -363,55 +363,55 @@ namespace EncuestaB0._1._0.App_Code {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntasRow this[int index] {
+            public Preguntas1Row this[int index] {
                 get {
-                    return ((PreguntasRow)(this.Rows[index]));
+                    return ((Preguntas1Row)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event PreguntasRowChangeEventHandler PreguntasRowChanging;
+            public event Preguntas1RowChangeEventHandler Preguntas1RowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event PreguntasRowChangeEventHandler PreguntasRowChanged;
+            public event Preguntas1RowChangeEventHandler Preguntas1RowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event PreguntasRowChangeEventHandler PreguntasRowDeleting;
+            public event Preguntas1RowChangeEventHandler Preguntas1RowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event PreguntasRowChangeEventHandler PreguntasRowDeleted;
+            public event Preguntas1RowChangeEventHandler Preguntas1RowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddPreguntasRow(PreguntasRow row) {
+            public void AddPreguntas1Row(Preguntas1Row row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntasRow AddPreguntasRow(string Descripcion, int TipoDePregunta, int subTipoDePregunta) {
-                PreguntasRow rowPreguntasRow = ((PreguntasRow)(this.NewRow()));
+            public Preguntas1Row AddPreguntas1Row(string Descripcion, int TipoDePregunta, int SubTipoDePregunta) {
+                Preguntas1Row rowPreguntas1Row = ((Preguntas1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Descripcion,
                         TipoDePregunta,
-                        subTipoDePregunta};
-                rowPreguntasRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowPreguntasRow);
-                return rowPreguntasRow;
+                        SubTipoDePregunta};
+                rowPreguntas1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPreguntas1Row);
+                return rowPreguntas1Row;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntasRow FindByPreguntaId(int PreguntaId) {
-                return ((PreguntasRow)(this.Rows.Find(new object[] {
+            public Preguntas1Row FindByPreguntaId(int PreguntaId) {
+                return ((Preguntas1Row)(this.Rows.Find(new object[] {
                             PreguntaId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                PreguntasDataTable cln = ((PreguntasDataTable)(base.Clone()));
+                Preguntas1DataTable cln = ((Preguntas1DataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -419,7 +419,7 @@ namespace EncuestaB0._1._0.App_Code {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new PreguntasDataTable();
+                return new Preguntas1DataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -428,7 +428,7 @@ namespace EncuestaB0._1._0.App_Code {
                 this.columnPreguntaId = base.Columns["PreguntaId"];
                 this.columnDescripcion = base.Columns["Descripcion"];
                 this.columnTipoDePregunta = base.Columns["TipoDePregunta"];
-                this.columnsubTipoDePregunta = base.Columns["subTipoDePregunta"];
+                this.columnSubTipoDePregunta = base.Columns["SubTipoDePregunta"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -440,8 +440,8 @@ namespace EncuestaB0._1._0.App_Code {
                 base.Columns.Add(this.columnDescripcion);
                 this.columnTipoDePregunta = new global::System.Data.DataColumn("TipoDePregunta", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTipoDePregunta);
-                this.columnsubTipoDePregunta = new global::System.Data.DataColumn("subTipoDePregunta", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsubTipoDePregunta);
+                this.columnSubTipoDePregunta = new global::System.Data.DataColumn("SubTipoDePregunta", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubTipoDePregunta);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPreguntaId}, true));
                 this.columnPreguntaId.AutoIncrement = true;
@@ -455,28 +455,28 @@ namespace EncuestaB0._1._0.App_Code {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntasRow NewPreguntasRow() {
-                return ((PreguntasRow)(this.NewRow()));
+            public Preguntas1Row NewPreguntas1Row() {
+                return ((Preguntas1Row)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new PreguntasRow(builder);
+                return new Preguntas1Row(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(PreguntasRow);
+                return typeof(Preguntas1Row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.PreguntasRowChanged != null)) {
-                    this.PreguntasRowChanged(this, new PreguntasRowChangeEvent(((PreguntasRow)(e.Row)), e.Action));
+                if ((this.Preguntas1RowChanged != null)) {
+                    this.Preguntas1RowChanged(this, new Preguntas1RowChangeEvent(((Preguntas1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -484,8 +484,8 @@ namespace EncuestaB0._1._0.App_Code {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.PreguntasRowChanging != null)) {
-                    this.PreguntasRowChanging(this, new PreguntasRowChangeEvent(((PreguntasRow)(e.Row)), e.Action));
+                if ((this.Preguntas1RowChanging != null)) {
+                    this.Preguntas1RowChanging(this, new Preguntas1RowChangeEvent(((Preguntas1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -493,8 +493,8 @@ namespace EncuestaB0._1._0.App_Code {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.PreguntasRowDeleted != null)) {
-                    this.PreguntasRowDeleted(this, new PreguntasRowChangeEvent(((PreguntasRow)(e.Row)), e.Action));
+                if ((this.Preguntas1RowDeleted != null)) {
+                    this.Preguntas1RowDeleted(this, new Preguntas1RowChangeEvent(((Preguntas1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -502,14 +502,14 @@ namespace EncuestaB0._1._0.App_Code {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.PreguntasRowDeleting != null)) {
-                    this.PreguntasRowDeleting(this, new PreguntasRowChangeEvent(((PreguntasRow)(e.Row)), e.Action));
+                if ((this.Preguntas1RowDeleting != null)) {
+                    this.Preguntas1RowDeleting(this, new Preguntas1RowChangeEvent(((Preguntas1Row)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovePreguntasRow(PreguntasRow row) {
+            public void RemovePreguntas1Row(Preguntas1Row row) {
                 this.Rows.Remove(row);
             }
             
@@ -536,7 +536,7 @@ namespace EncuestaB0._1._0.App_Code {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "PreguntasDataTable";
+                attribute2.FixedValue = "Preguntas1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -580,25 +580,25 @@ namespace EncuestaB0._1._0.App_Code {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class PreguntasRow : global::System.Data.DataRow {
+        public partial class Preguntas1Row : global::System.Data.DataRow {
             
-            private PreguntasDataTable tablePreguntas;
+            private Preguntas1DataTable tablePreguntas1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal PreguntasRow(global::System.Data.DataRowBuilder rb) : 
+            internal Preguntas1Row(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablePreguntas = ((PreguntasDataTable)(this.Table));
+                this.tablePreguntas1 = ((Preguntas1DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int PreguntaId {
                 get {
-                    return ((int)(this[this.tablePreguntas.PreguntaIdColumn]));
+                    return ((int)(this[this.tablePreguntas1.PreguntaIdColumn]));
                 }
                 set {
-                    this[this.tablePreguntas.PreguntaIdColumn] = value;
+                    this[this.tablePreguntas1.PreguntaIdColumn] = value;
                 }
             }
             
@@ -607,14 +607,14 @@ namespace EncuestaB0._1._0.App_Code {
             public string Descripcion {
                 get {
                     try {
-                        return ((string)(this[this.tablePreguntas.DescripcionColumn]));
+                        return ((string)(this[this.tablePreguntas1.DescripcionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Descripcion\' in table \'Preguntas\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Descripcion\' in table \'Preguntas1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePreguntas.DescripcionColumn] = value;
+                    this[this.tablePreguntas1.DescripcionColumn] = value;
                 }
             }
             
@@ -623,67 +623,67 @@ namespace EncuestaB0._1._0.App_Code {
             public int TipoDePregunta {
                 get {
                     try {
-                        return ((int)(this[this.tablePreguntas.TipoDePreguntaColumn]));
+                        return ((int)(this[this.tablePreguntas1.TipoDePreguntaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TipoDePregunta\' in table \'Preguntas\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TipoDePregunta\' in table \'Preguntas1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePreguntas.TipoDePreguntaColumn] = value;
+                    this[this.tablePreguntas1.TipoDePreguntaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int subTipoDePregunta {
+            public int SubTipoDePregunta {
                 get {
                     try {
-                        return ((int)(this[this.tablePreguntas.subTipoDePreguntaColumn]));
+                        return ((int)(this[this.tablePreguntas1.SubTipoDePreguntaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'subTipoDePregunta\' in table \'Preguntas\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubTipoDePregunta\' in table \'Preguntas1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablePreguntas.subTipoDePreguntaColumn] = value;
+                    this[this.tablePreguntas1.SubTipoDePreguntaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDescripcionNull() {
-                return this.IsNull(this.tablePreguntas.DescripcionColumn);
+                return this.IsNull(this.tablePreguntas1.DescripcionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDescripcionNull() {
-                this[this.tablePreguntas.DescripcionColumn] = global::System.Convert.DBNull;
+                this[this.tablePreguntas1.DescripcionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTipoDePreguntaNull() {
-                return this.IsNull(this.tablePreguntas.TipoDePreguntaColumn);
+                return this.IsNull(this.tablePreguntas1.TipoDePreguntaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTipoDePreguntaNull() {
-                this[this.tablePreguntas.TipoDePreguntaColumn] = global::System.Convert.DBNull;
+                this[this.tablePreguntas1.TipoDePreguntaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IssubTipoDePreguntaNull() {
-                return this.IsNull(this.tablePreguntas.subTipoDePreguntaColumn);
+            public bool IsSubTipoDePreguntaNull() {
+                return this.IsNull(this.tablePreguntas1.SubTipoDePreguntaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetsubTipoDePreguntaNull() {
-                this[this.tablePreguntas.subTipoDePreguntaColumn] = global::System.Convert.DBNull;
+            public void SetSubTipoDePreguntaNull() {
+                this[this.tablePreguntas1.SubTipoDePreguntaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -691,22 +691,22 @@ namespace EncuestaB0._1._0.App_Code {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class PreguntasRowChangeEvent : global::System.EventArgs {
+        public class Preguntas1RowChangeEvent : global::System.EventArgs {
             
-            private PreguntasRow eventRow;
+            private Preguntas1Row eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntasRowChangeEvent(PreguntasRow row, global::System.Data.DataRowAction action) {
+            public Preguntas1RowChangeEvent(Preguntas1Row row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PreguntasRow Row {
+            public Preguntas1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -734,7 +734,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class PreguntasTableAdapter : global::System.ComponentModel.Component {
+    public partial class Preguntas1TableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -748,7 +748,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public PreguntasTableAdapter() {
+        public Preguntas1TableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -845,35 +845,45 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Preguntas";
+            tableMapping.DataSetTable = "Preguntas1";
             tableMapping.ColumnMappings.Add("PreguntaId", "PreguntaId");
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion");
             tableMapping.ColumnMappings.Add("TipoDePregunta", "TipoDePregunta");
-            tableMapping.ColumnMappings.Add("subTipoDePregunta", "subTipoDePregunta");
+            tableMapping.ColumnMappings.Add("SubTipoDePregunta", "SubTipoDePregunta");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Preguntas] WHERE (([PreguntaId] = @Original_PreguntaId))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Preguntas] WHERE (([PreguntaId] = @Original_PreguntaId) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ((@IsNull_TipoDePregunta = 1 AND [TipoDePregunta] IS NULL) OR ([TipoDePregunta] = @Original_TipoDePregunta)) AND ((@IsNull_SubTipoDePregunta = 1 AND [SubTipoDePregunta] IS NULL) OR ([SubTipoDePregunta] = @Original_SubTipoDePregunta)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PreguntaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PreguntaId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TipoDePregunta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TipoDePregunta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SubTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubTipoDePregunta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubTipoDePregunta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Preguntas] ([Descripcion], [TipoDePregunta], [subTipoDePregunta]) VA" +
-                "LUES (@Descripcion, @TipoDePregunta, @subTipoDePregunta)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Preguntas] ([Descripcion], [TipoDePregunta], [SubTipoDePregunta]) VA" +
+                "LUES (@Descripcion, @TipoDePregunta, @SubTipoDePregunta)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TipoDePregunta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subTipoDePregunta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubTipoDePregunta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [Preguntas] SET [Descripcion] = @Descripcion, [TipoDePregunta] = @TipoDePr" +
-                "egunta, [subTipoDePregunta] = @subTipoDePregunta WHERE (([PreguntaId] = @Origina" +
-                "l_PreguntaId))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Preguntas] SET [Descripcion] = @Descripcion, [TipoDePregunta] = @TipoDePregunta, [SubTipoDePregunta] = @SubTipoDePregunta WHERE (([PreguntaId] = @Original_PreguntaId) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Original_Descripcion)) AND ((@IsNull_TipoDePregunta = 1 AND [TipoDePregunta] IS NULL) OR ([TipoDePregunta] = @Original_TipoDePregunta)) AND ((@IsNull_SubTipoDePregunta = 1 AND [SubTipoDePregunta] IS NULL) OR ([SubTipoDePregunta] = @Original_SubTipoDePregunta)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TipoDePregunta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "subTipoDePregunta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SubTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubTipoDePregunta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_PreguntaId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PreguntaId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Descripcion", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_TipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TipoDePregunta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TipoDePregunta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_SubTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubTipoDePregunta", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SubTipoDePregunta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SubTipoDePregunta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -889,7 +899,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        PreguntaId, Descripcion, TipoDePregunta, subTipoDePregunta\r\nFROM   " +
+            this._commandCollection[0].CommandText = "SELECT        PreguntaId, Descripcion, TipoDePregunta, SubTipoDePregunta\r\nFROM   " +
                 "         Preguntas";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
@@ -898,7 +908,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PreguntasDataSet.PreguntasDataTable dataTable) {
+        public virtual int Fill(PreguntasDataSet.Preguntas1DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -911,9 +921,9 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PreguntasDataSet.PreguntasDataTable GetData() {
+        public virtual PreguntasDataSet.Preguntas1DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            PreguntasDataSet.PreguntasDataTable dataTable = new PreguntasDataSet.PreguntasDataTable();
+            PreguntasDataSet.Preguntas1DataTable dataTable = new PreguntasDataSet.Preguntas1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -921,7 +931,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(PreguntasDataSet.PreguntasDataTable dataTable) {
+        public virtual int Update(PreguntasDataSet.Preguntas1DataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -929,7 +939,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(PreguntasDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Preguntas");
+            return this.Adapter.Update(dataSet, "Preguntas1");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -951,8 +961,32 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_PreguntaId) {
+        public virtual int Delete(int Original_PreguntaId, string Original_Descripcion, global::System.Nullable<int> Original_TipoDePregunta, global::System.Nullable<int> Original_SubTipoDePregunta) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_PreguntaId));
+            if ((Original_Descripcion == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Descripcion));
+            }
+            if ((Original_TipoDePregunta.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_TipoDePregunta.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SubTipoDePregunta.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_SubTipoDePregunta.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -973,7 +1007,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Descripcion, global::System.Nullable<int> TipoDePregunta, global::System.Nullable<int> subTipoDePregunta) {
+        public virtual int Insert(string Descripcion, global::System.Nullable<int> TipoDePregunta, global::System.Nullable<int> SubTipoDePregunta) {
             if ((Descripcion == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -986,8 +1020,8 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((subTipoDePregunta.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(subTipoDePregunta.Value));
+            if ((SubTipoDePregunta.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(SubTipoDePregunta.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
@@ -1012,7 +1046,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Descripcion, global::System.Nullable<int> TipoDePregunta, global::System.Nullable<int> subTipoDePregunta, int Original_PreguntaId) {
+        public virtual int Update(string Descripcion, global::System.Nullable<int> TipoDePregunta, global::System.Nullable<int> SubTipoDePregunta, int Original_PreguntaId, string Original_Descripcion, global::System.Nullable<int> Original_TipoDePregunta, global::System.Nullable<int> Original_SubTipoDePregunta) {
             if ((Descripcion == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1025,13 +1059,37 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((subTipoDePregunta.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(subTipoDePregunta.Value));
+            if ((SubTipoDePregunta.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(SubTipoDePregunta.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_PreguntaId));
+            if ((Original_Descripcion == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Descripcion));
+            }
+            if ((Original_TipoDePregunta.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_TipoDePregunta.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            if ((Original_SubTipoDePregunta.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_SubTipoDePregunta.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1061,7 +1119,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private PreguntasTableAdapter _preguntasTableAdapter;
+        private Preguntas1TableAdapter _preguntas1TableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1083,12 +1141,12 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public PreguntasTableAdapter PreguntasTableAdapter {
+        public Preguntas1TableAdapter Preguntas1TableAdapter {
             get {
-                return this._preguntasTableAdapter;
+                return this._preguntas1TableAdapter;
             }
             set {
-                this._preguntasTableAdapter = value;
+                this._preguntas1TableAdapter = value;
             }
         }
         
@@ -1111,9 +1169,9 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._preguntasTableAdapter != null) 
-                            && (this._preguntasTableAdapter.Connection != null))) {
-                    return this._preguntasTableAdapter.Connection;
+                if (((this._preguntas1TableAdapter != null) 
+                            && (this._preguntas1TableAdapter.Connection != null))) {
+                    return this._preguntas1TableAdapter.Connection;
                 }
                 return null;
             }
@@ -1128,7 +1186,7 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._preguntasTableAdapter != null)) {
+                if ((this._preguntas1TableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1142,12 +1200,12 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(PreguntasDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._preguntasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Preguntas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._preguntas1TableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Preguntas1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._preguntasTableAdapter.Update(updatedRows));
+                    result = (result + this._preguntas1TableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1161,11 +1219,11 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(PreguntasDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._preguntasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Preguntas.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._preguntas1TableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Preguntas1.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._preguntasTableAdapter.Update(addedRows));
+                    result = (result + this._preguntas1TableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1179,11 +1237,11 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(PreguntasDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._preguntasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Preguntas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._preguntas1TableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Preguntas1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._preguntasTableAdapter.Update(deletedRows));
+                    result = (result + this._preguntas1TableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1226,8 +1284,8 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._preguntasTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._preguntasTableAdapter.Connection) == false))) {
+            if (((this._preguntas1TableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._preguntas1TableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1263,13 +1321,13 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._preguntasTableAdapter != null)) {
-                    revertConnections.Add(this._preguntasTableAdapter, this._preguntasTableAdapter.Connection);
-                    this._preguntasTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._preguntasTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._preguntasTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._preguntasTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._preguntasTableAdapter.Adapter);
+                if ((this._preguntas1TableAdapter != null)) {
+                    revertConnections.Add(this._preguntas1TableAdapter, this._preguntas1TableAdapter.Connection);
+                    this._preguntas1TableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._preguntas1TableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._preguntas1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._preguntas1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._preguntas1TableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1330,9 +1388,9 @@ namespace EncuestaB0._1._0.App_Code.PreguntasDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._preguntasTableAdapter != null)) {
-                    this._preguntasTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._preguntasTableAdapter]));
-                    this._preguntasTableAdapter.Transaction = null;
+                if ((this._preguntas1TableAdapter != null)) {
+                    this._preguntas1TableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._preguntas1TableAdapter]));
+                    this._preguntas1TableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

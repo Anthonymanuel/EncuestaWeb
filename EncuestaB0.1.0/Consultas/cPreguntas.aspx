@@ -44,9 +44,7 @@
                                     </Columns>
                                     <PagerSettings FirstPageText="Primera" LastPageText="Ultima" Mode="NextPrevious" NextPageText="Siguiente" PreviousPageText="Anterior" LastPageImageUrl="~/Imagenes/1460333907_next_right.png" NextPageImageUrl="~/Imagenes/1460333907_next_right.png" PreviousPageImageUrl="~/Imagenes/1460333926_previous_left.png" />
                                 </asp:GridView>
-                                <br />
-                                <asp:Button ID="ImprimirButton" CssClass="btn btn-success btn-sm" runat="server" Text="Imprimir" OnClick="ImprimirButton_Click" Visible="false" />
-                            </div>
+                              </div>
                             <div class="col-sm-3 col-xs-3">
                             </div>
                         </div>

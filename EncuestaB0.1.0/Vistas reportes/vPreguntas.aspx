@@ -20,21 +20,12 @@
                             </DataSources>
                         </LocalReport>
                     </rsweb:ReportViewer>
-                    <asp:ObjectDataSource ID="PreguntasObjectDataSource" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PreguntasDataSetTableAdapters.PreguntasTableAdapter" UpdateMethod="Update">
-                        <DeleteParameters>
-                            <asp:Parameter Name="Original_PreguntaId" Type="Int32" />
-                        </DeleteParameters>
+                    <asp:ObjectDataSource ID="PreguntasObjectDataSource" runat="server" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="PreguntasDataSetTableAdapters.Preguntas1TableAdapter">
                         <InsertParameters>
                             <asp:Parameter Name="Descripcion" Type="String" />
                             <asp:Parameter Name="TipoDePregunta" Type="Int32" />
                             <asp:Parameter Name="subTipoDePregunta" Type="Int32" />
                         </InsertParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="Descripcion" Type="String" />
-                            <asp:Parameter Name="TipoDePregunta" Type="Int32" />
-                            <asp:Parameter Name="subTipoDePregunta" Type="Int32" />
-                            <asp:Parameter Name="Original_PreguntaId" Type="Int32" />
-                        </UpdateParameters>
                     </asp:ObjectDataSource>
                 </div>
             </div>

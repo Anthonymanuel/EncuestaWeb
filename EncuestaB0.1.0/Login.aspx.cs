@@ -24,7 +24,6 @@ namespace EncuestaB0._1._0
             if (usuario.Login(EmailTextBox.Text, ContrasenaTextBox.Text))
             {
                 FormsAuthentication.RedirectFromLoginPage(EmailTextBox.Text, RecordarmeCheckBox.Checked);
-                Response.Redirect("/Registros/rPreguntas.aspx");
             }
             else
             {

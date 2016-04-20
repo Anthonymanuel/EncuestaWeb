@@ -77,7 +77,7 @@ namespace EncuestaB0._1._0
                     cerradas.PreguntaId = Utilitarios.ConveritrId(label.Text);
                     cerradas.Respuestas = Utilitarios.ConveritrId(radio.SelectedValue);//radio.SelectedIndex + 1;
                     cerradas.Insertar();
-
+                        radio.ClearSelection();
                 }
                 if (subTipo.Text == "2")
                 {
@@ -89,14 +89,15 @@ namespace EncuestaB0._1._0
                         x++;
                         if (aux.Selected == true)
                         {
-                            cerradas.Respuestas = x; //check.SelectedIndex +1;//;
+                            cerradas.Respuestas = x; 
                             cerradas.Insertar();
                         }
                     }
 
+                    check.ClearSelection();
                 }
             }
-
+            
         }
 
 

@@ -40,7 +40,6 @@ namespace EncuestaB0._1._0.Consultas
                     condicion = FiltroDropDownList.SelectedItem.Text + " like " + "'%" + CampoTextBox.Text + "%'";
                 }
             }
-            ImprimirButton.Visible = true;
             dt = encuesta.Listado(" * ", condicion, "");
             DatoGridView.DataSource = dt;
             DatoGridView.DataBind();
@@ -56,9 +55,6 @@ namespace EncuestaB0._1._0.Consultas
             DatoGridView.PageIndex = e.NewPageIndex;
             BindData();
         }
-        protected void ImprimirButton_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Vistas reportes/vEncuestas.aspx");
-        }
+
     }
 }
