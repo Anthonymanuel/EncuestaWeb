@@ -37,7 +37,7 @@ namespace EncuestaB0._1._0.Consultas
             if (TipoDropDownList.SelectedIndex == 0)
             {
                 dt = encuesta.ListadoResultado(" e.EncuestaId,e.Entidad,e.Descripcion,e.Fecha,p.Descripcion,r.Descripcion", "e." + condicion + " And p.TipoDePregunta = 1 ", "");
-              
+
             }
             else
             {

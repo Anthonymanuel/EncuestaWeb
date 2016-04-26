@@ -110,11 +110,14 @@ namespace BLL
             bool retorno = false;
             try
             {
-                retorno = conexion.Ejecutar(String.Format("Delete RespuestasAbiertas Where PreguntaId = {0};" + 
-                                                          "Delete RespuestasCerradas Where PreguntaId = {0};" + 
-                                                          "Delete EncuestasPreguntas Where PreguntaId = {0};" + 
+                retorno = conexion.Ejecutar(String.Format("Alter table RespuestasAbiertas NOCHECK constraint ALL;" +
+                                                          "Alter table RespuestasCerradas NOCHECK constraint ALL;" +
+                                                          "Alter table EncuestasPreguntas NOCHECK constraint ALL;" + 
                                                           "Delete RespuestasPosibles Where PreguntaId = {0};" +
-                                                          "Delete Preguntas Where  PreguntaId = {0};", this.PreguntaId));
+                                                          "Delete Preguntas Where  PreguntaId = {0};"+
+                                                          "Alter table RespuestasAbiertas CHECK constraint ALL;" +
+                                                          "Alter table RespuestasCerradas CHECK constraint ALL;" +
+                                                          "Alter table EncuestasPreguntas CHECK constraint ALL;", this.PreguntaId));
             }
             catch (Exception ex)
             {

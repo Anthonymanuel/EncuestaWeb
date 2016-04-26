@@ -28,7 +28,7 @@ namespace EncuestaB0._1._0
 
             Encuestas encuestas = new Encuestas();
 
-            TituloRepeater.DataSource = encuestas.Listado("Entidad,Descripcion,Fecha", " EncuestaId = " + id.ToString(), "");
+            TituloRepeater.DataSource = encuestas.Listado("EncuestaId,Entidad,Descripcion,Fecha", " EncuestaId = " + id.ToString(), "");
             TituloRepeater.DataBind();
             PreguntasRepeater.DataSource = encuestas.ListadoPreguntas("p.PreguntaId,p.Descripcion,p.TipoDePregunta,p.SubTipoDePregunta", " where e.EncuestaId  = " + id.ToString());
             PreguntasRepeater.DataBind();
@@ -75,7 +75,7 @@ namespace EncuestaB0._1._0
                 {
                     RespuestasCerradas cerradas = new RespuestasCerradas();
                     cerradas.PreguntaId = Utilitarios.ConveritrId(label.Text);
-                    cerradas.Respuestas = Utilitarios.ConveritrId(radio.SelectedValue);//radio.SelectedIndex + 1;
+                    cerradas.Respuestas = radio.SelectedIndex + 1;
                     cerradas.Insertar();
                         radio.ClearSelection();
                 }
@@ -97,7 +97,12 @@ namespace EncuestaB0._1._0
                     check.ClearSelection();
                 }
             }
-            
+            Encuestados encuestados = new Encuestados();
+            encuestados.Cantidad = 1;
+            encuestados.EncuestaId = Utilitarios.ConveritrId(Request.QueryString["idBuscado"].ToString()); ;
+            encuestados.Insertar();
+            Response.Redirect("/Default.aspx");
+
         }
 
 

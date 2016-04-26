@@ -55,3 +55,10 @@ Create Table EncuestasPreguntas
     EncuestaId Int Foreign Key References Encuestas(EncuestaId),
 	PreguntaId Int Foreign Key References Preguntas(PreguntaId)
 )
+
+Create Table Encuestados
+(
+    EncuestadoId Int Primary Key Identity(1,1),
+    EncuestaId Int Foreign Key References Encuestas(EncuestaId),
+	Cantidad Int
+)
